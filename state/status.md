@@ -14,7 +14,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - lightweight structural check in `scripts/check_long_codex_repo.sh`
 - active thread heartbeat automation `long-codex-hourly-continuation`
 - GitHub remote `origin` set to `https://github.com/miles-nash/Long-Codex.git`
-- initial scaffold commit `4a8ad38`; latest pushed handoff commit `aa4fec7`
+- initial scaffold and handoff commits pushed to `origin/main`; use `git log --oneline -3` for exact history
 
 ## Decisions
 
