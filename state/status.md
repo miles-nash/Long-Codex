@@ -27,6 +27,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - source ledger added in `docs/source_ledger.md` to map claims to evidence paths and implications
 - active heartbeat cadence temporarily increased from 60 minutes to 30 minutes after Miles said to work more than hourly for now
 - `scripts/check_long_codex_repo.sh` now detects stale state dates, research notes without sources, and missing source-ledger evidence paths
+- `scripts/eval_long_codex_cycle.py` now emits `evals/last_long_codex_cycle_smoke_summary.json` with duration, event counts, checks, and usage
 
 ## Decisions
 
@@ -43,10 +44,11 @@ The repo now has an initial long-horizon Codex scaffold:
 - Use `docs/source_ledger.md` as the first stop for source-backed claims before reopening full research notes.
 - Keep the same steering prompt while increasing cadence; faster cycles should still be bounded by artifact, verification, and handoff.
 - Treat freshness and source-link checks as part of the minimum durable-state contract.
+- Keep eval summary artifacts compact enough to commit; omit successful-run stderr noise.
 
 ## Known Gaps
 
-- The eval suite has one smoke test only; it does not yet measure action quality or useful-hour score.
+- The eval suite has one smoke test with JSON summary output; it does not yet measure action quality or useful-hour score.
 - The repo has enough heartbeat logs for initial synthesis, but not yet for weekly trend analysis.
 - Source ledger exists, but the repo still lacks a stale-open-loop list.
 

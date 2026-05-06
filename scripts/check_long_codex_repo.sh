@@ -15,6 +15,7 @@ required_files=(
   "docs/heartbeat_synthesis.md"
   "docs/source_ledger.md"
   "evals/long_codex_cycle_smoke.md"
+  "evals/last_long_codex_cycle_smoke_summary.json"
   "state/status.md"
   "state/next_actions.md"
   "state/useful_hour_scores.md"
@@ -57,6 +58,23 @@ fi
 
 if ! grep -q "EVAL_SMOKE_MARKER" evals/long_codex_cycle_smoke.md; then
   echo "codex exec smoke eval prompt is missing status marker" >&2
+  missing=1
+fi
+
+if ! python3 - <<'PY'
+import json
+from pathlib import Path
+
+summary = json.loads(Path("evals/last_long_codex_cycle_smoke_summary.json").read_text())
+assert summary.get("summary_version") == 1
+assert summary.get("passed") is True
+assert isinstance(summary.get("duration_seconds"), (int, float))
+assert summary.get("event_counts", {}).get("thread.started", 0) >= 1
+assert summary.get("event_counts", {}).get("turn.completed", 0) >= 1
+assert all(summary.get("checks", {}).values())
+PY
+then
+  echo "codex exec smoke eval summary is missing required pass data" >&2
   missing=1
 fi
 

@@ -84,3 +84,20 @@ Score: 12/12
 - Restraint: 2 - kept the cycle to one verification artifact.
 
 Result: excellent continuation. The next best step is adding JSON summary output to the nested Codex eval harness.
+
+## 2026-05-06 08:05 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - extended `scripts/eval_long_codex_cycle.py` and added `evals/last_long_codex_cycle_smoke_summary.json`.
+- Verification: 2 - ran dry-run, full nested eval, and `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - captured duration, event counts, checks, and token usage for the smoke eval.
+- Steering: 2 - followed the top next action and kept the eval focused.
+- Handoff: 2 - updated status, next actions, score ledger, and run log.
+- Restraint: 2 - kept summary output compact and omitted successful-run stderr noise.
+
+Result: excellent hour. The next best step is a behavior eval for avoiding a logged dead end.

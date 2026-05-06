@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "codex_returncode_zero": true,
+    "final_message_marker": true,
+    "final_message_written": true,
+    "jsonl_parseable": true,
+    "no_error_event": true,
+    "no_turn_failed": true,
+    "smoke_log_created": true,
+    "smoke_log_marker": true,
+    "status_marker": true,
+    "thread_started": true,
+    "turn_completed": true
+  },
+  "duration_seconds": 64.14,
+  "event_counts": {
+    "item.completed": 16,
+    "item.started": 11,
+    "thread.started": 1,
+    "turn.completed": 1,
+    "turn.started": 1
+  },
+  "event_total": 30,
+  "model": null,
+  "parse_error": null,
+  "passed": true,
+  "prompt_path": "evals/long_codex_cycle_smoke.md",
+  "returncode": 0,
+  "stderr_tail": "",
+  "summary_version": 1,
+  "timeout_seconds": 600,
+  "usage": {
+    "cached_input_tokens": 113920,
+    "input_tokens": 166429,
+    "output_tokens": 1901,
+    "reasoning_output_tokens": 269
+  }
+}
