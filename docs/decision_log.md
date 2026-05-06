@@ -29,3 +29,9 @@ Reason: The next bottleneck is not storage capacity. It is choosing useful work 
 Decision: `scripts/eval_long_codex_cycle.py` runs nested `codex exec --json` smoke tests in a temporary copy of the repo with `workspace-write` sandboxing and `approval_policy="never"`.
 
 Reason: The eval should measure whether the long-codex cycle can update durable state without risking the live project, changing automations, committing, or pushing.
+
+## 2026-05-06: Keep Heartbeat Prompt After Initial Synthesis
+
+Decision: Keep the active `long-codex-hourly-continuation` prompt unchanged after the first two observed runs.
+
+Reason: The runs scored 11/12 and 12/12, followed the queue, produced durable artifacts, verified work, and did not ask for unnecessary user input. The next bottleneck is memory structure, not prompt wording.

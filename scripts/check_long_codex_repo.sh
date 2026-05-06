@@ -12,6 +12,7 @@ required_files=(
   "docs/research/2026-05-06-deep-agent-memory.md"
   "docs/useful_hour_scorecard.md"
   "docs/decision_log.md"
+  "docs/heartbeat_synthesis.md"
   "evals/long_codex_cycle_smoke.md"
   "state/status.md"
   "state/next_actions.md"
@@ -55,6 +56,11 @@ fi
 
 if ! grep -q "EVAL_SMOKE_MARKER" evals/long_codex_cycle_smoke.md; then
   echo "codex exec smoke eval prompt is missing status marker" >&2
+  missing=1
+fi
+
+if ! grep -q "Keep the active heartbeat automation as-is" docs/heartbeat_synthesis.md; then
+  echo "heartbeat synthesis is missing automation decision" >&2
   missing=1
 fi
 

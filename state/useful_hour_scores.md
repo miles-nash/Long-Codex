@@ -33,3 +33,20 @@ Score: 12/12
 - Restraint: 2 - kept the nested eval local, temporary, and non-publishing.
 
 Result: excellent hour. The repo now has a working empirical smoke eval for the long-codex cycle.
+
+## 2026-05-06 02:19 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `synthesis`
+
+Score: 11/12
+
+- Artifact: 2 - added `docs/heartbeat_synthesis.md`.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` before and after edits.
+- Learning: 2 - concluded the prompt is working and the next bottleneck is memory structure, not automation wording.
+- Steering: 2 - followed the top next action and changed mode after two eval cycles.
+- Handoff: 2 - updated status, next actions, score ledger, and run log.
+- Restraint: 1 - updated the structural check to require the synthesis artifact, which is useful but slightly expands the maintenance surface.
+
+Result: useful hour. The automation should remain active unchanged; next work should build the source ledger.
