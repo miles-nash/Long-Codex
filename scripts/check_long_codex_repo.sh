@@ -12,10 +12,12 @@ required_files=(
   "docs/research/2026-05-06-deep-agent-memory.md"
   "docs/useful_hour_scorecard.md"
   "docs/decision_log.md"
+  "evals/long_codex_cycle_smoke.md"
   "state/status.md"
   "state/next_actions.md"
   "state/useful_hour_scores.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
+  "scripts/eval_long_codex_cycle.py"
 )
 
 missing=0
@@ -48,6 +50,23 @@ fi
 
 if ! grep -q "long-codex-hourly-continuation" state/useful_hour_scores.md; then
   echo "useful hour score ledger is missing heartbeat entry" >&2
+  missing=1
+fi
+
+if ! grep -q "EVAL_SMOKE_MARKER" evals/long_codex_cycle_smoke.md; then
+  echo "codex exec smoke eval prompt is missing status marker" >&2
+  missing=1
+fi
+
+if ! python3 - <<'PY'
+import py_compile
+import tempfile
+
+with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
+    py_compile.compile("scripts/eval_long_codex_cycle.py", cfile=compiled.name, doraise=True)
+PY
+then
+  echo "codex exec smoke eval script has a syntax error" >&2
   missing=1
 fi
 

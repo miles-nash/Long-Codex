@@ -23,3 +23,9 @@ Reason: Skills define reusable method; automations define schedule.
 Decision: Add `docs/automation_steering.md` and a useful-hour scorecard before building heavier orchestration.
 
 Reason: The next bottleneck is not storage capacity. It is choosing useful work and proving the hour mattered.
+
+## 2026-05-06: Run Codex Evals In Temporary Copies
+
+Decision: `scripts/eval_long_codex_cycle.py` runs nested `codex exec --json` smoke tests in a temporary copy of the repo with `workspace-write` sandboxing and `approval_policy="never"`.
+
+Reason: The eval should measure whether the long-codex cycle can update durable state without risking the live project, changing automations, committing, or pushing.

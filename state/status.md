@@ -22,6 +22,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - first heartbeat wakeup observed and scored in `state/useful_hour_scores.md`
 - "latest log" instructions now use modification time, not filename sort
 - live heartbeat automation updated with the modification-time log rule
+- `codex exec --json` smoke eval added and passed in `scripts/eval_long_codex_cycle.py`
 
 ## Decisions
 
@@ -33,12 +34,13 @@ The repo now has an initial long-horizon Codex scaffold:
 - Make the heartbeat choose work by a lightweight value score, not by recency alone.
 - Preserve exact evidence paths and source URLs; summaries should point back to dereferenceable evidence.
 - Resolve "latest log" by modification time because descriptive filenames are not reliable chronological keys.
+- Run nested Codex evals in a temporary repo copy with `approval_policy="never"` and `workspace-write`, never against the live project.
 
 ## Known Gaps
 
-- No empirical `codex exec --json` eval suite exists yet.
+- The eval suite has one smoke test only; it does not yet measure action quality or useful-hour score.
 - The repo has not yet accumulated multiple hourly run logs, so the synthesis layer is thin.
-- The automation needs one more observed wakeup before judging the steering policy stable.
+- The steering policy now has two observed heartbeat runs; it still needs a short synthesis.
 
 ## Recovery Instructions
 
