@@ -67,3 +67,20 @@ Score: 12/12
 - Restraint: 2 - kept the cycle to one durable memory artifact and a small structural check update.
 
 Result: excellent hour. The next bottleneck is automated freshness/link checking and richer eval summaries.
+
+## 2026-05-06 Continuing Work
+
+Automation: manual continuation after Miles said "keep working"
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - improved `scripts/check_long_codex_repo.sh` with freshness, source-link, and ledger-evidence checks.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` after the change.
+- Learning: 2 - made the repo's implicit freshness/source contract executable.
+- Steering: 2 - followed the highest-priority next action without expanding scope.
+- Handoff: 2 - updated status, next actions, score ledger, and run log.
+- Restraint: 2 - kept the cycle to one verification artifact.
+
+Result: excellent continuation. The next best step is adding JSON summary output to the nested Codex eval harness.

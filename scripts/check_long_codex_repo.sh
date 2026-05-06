@@ -81,6 +81,88 @@ if ! grep -q "MemoryArena" docs/source_ledger.md; then
 fi
 
 if ! python3 - <<'PY'
+from __future__ import annotations
+
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+errors: list[str] = []
+date_re = re.compile(r"^\s*(?:Last updated|Date):\s*(\d{4}-\d{2}-\d{2})\s*$", re.MULTILINE)
+url_re = re.compile(r"https?://[^\s)]+")
+
+
+def note(message: str) -> None:
+    errors.append(message)
+
+
+def first_date(path: Path) -> date | None:
+    match = date_re.search(path.read_text())
+    if not match:
+        return None
+    return date.fromisoformat(match.group(1))
+
+
+logs = sorted(Path("logs").glob("*.md"), key=lambda path: path.stat().st_mtime, reverse=True)
+if logs:
+    latest_log = logs[0]
+    latest_log_date = first_date(latest_log)
+    if latest_log_date is None:
+        note(f"{latest_log} is missing a Date: YYYY-MM-DD line")
+    else:
+        for state_path in (Path("state/status.md"), Path("state/next_actions.md")):
+            state_date = first_date(state_path)
+            if state_date is None:
+                note(f"{state_path} is missing Last updated: YYYY-MM-DD")
+            elif state_date < latest_log_date:
+                note(f"{state_path} is stale: {state_date} is older than latest log {latest_log_date}")
+
+for research_path in sorted(Path("docs/research").glob("*.md")):
+    text = research_path.read_text()
+    if "## Sources" not in text:
+        note(f"{research_path} is missing a ## Sources section")
+    if not url_re.search(text):
+        note(f"{research_path} is missing source links")
+
+ledger = Path("docs/source_ledger.md")
+ledger_text = ledger.read_text()
+rows = [
+    line
+    for line in ledger_text.splitlines()
+    if line.startswith("| ") and not line.startswith("| ---") and not line.startswith("| Source")
+]
+if not rows:
+    note("source ledger has no data rows")
+for index, row in enumerate(rows, start=1):
+    cells = [cell.strip() for cell in row.strip("|").split("|")]
+    if len(cells) != 5:
+        note(f"source ledger row {index} should have 5 columns")
+        continue
+    source, _claim, evidence, _implication, _next_use = cells
+    if not url_re.search(source):
+        note(f"source ledger row {index} source cell is missing a URL")
+    evidence_paths = re.findall(r"`([^`]+)`", evidence)
+    if not evidence_paths:
+        note(f"source ledger row {index} evidence cell is missing local path references")
+    for raw_path in evidence_paths:
+        if raw_path == "this ledger":
+            continue
+        candidate = Path(raw_path)
+        if not candidate.exists():
+            note(f"source ledger row {index} references missing evidence path: {raw_path}")
+
+if errors:
+    for error in errors:
+        print(error, file=sys.stderr)
+    raise SystemExit(1)
+PY
+then
+  echo "metadata freshness/source checks failed" >&2
+  missing=1
+fi
+
+if ! python3 - <<'PY'
 import py_compile
 import tempfile
 

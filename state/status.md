@@ -26,6 +26,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - first two heartbeat runs synthesized in `docs/heartbeat_synthesis.md`; prompt kept as-is
 - source ledger added in `docs/source_ledger.md` to map claims to evidence paths and implications
 - active heartbeat cadence temporarily increased from 60 minutes to 30 minutes after Miles said to work more than hourly for now
+- `scripts/check_long_codex_repo.sh` now detects stale state dates, research notes without sources, and missing source-ledger evidence paths
 
 ## Decisions
 
@@ -41,6 +42,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep the active heartbeat prompt unchanged after two successful observed runs; improve memory structure next.
 - Use `docs/source_ledger.md` as the first stop for source-backed claims before reopening full research notes.
 - Keep the same steering prompt while increasing cadence; faster cycles should still be bounded by artifact, verification, and handoff.
+- Treat freshness and source-link checks as part of the minimum durable-state contract.
 
 ## Known Gaps
 
