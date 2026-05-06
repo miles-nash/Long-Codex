@@ -14,6 +14,7 @@ required_files=(
   "docs/decision_log.md"
   "state/status.md"
   "state/next_actions.md"
+  "state/useful_hour_scores.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
 )
 
@@ -42,6 +43,11 @@ fi
 
 if ! grep -q "long-codex-cycle" .agents/skills/long-codex-cycle/SKILL.md; then
   echo "skill metadata missing expected name" >&2
+  missing=1
+fi
+
+if ! grep -q "long-codex-hourly-continuation" state/useful_hour_scores.md; then
+  echo "useful hour score ledger is missing heartbeat entry" >&2
   missing=1
 fi
 

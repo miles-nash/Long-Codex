@@ -5,7 +5,7 @@ Use this prompt for a thread heartbeat that keeps this work moving:
 ```text
 Continue the Long Codex persistence project in /Users/milesnash/Documents/New project 6.
 
-Use the $long-codex-cycle skill if it is available. First read AGENTS.md, docs/spec.md, docs/operating_loop.md, docs/automation_steering.md, state/status.md, state/next_actions.md, the latest logs/*.md, and git status --short --branch.
+Use the $long-codex-cycle skill if it is available. First read AGENTS.md, docs/spec.md, docs/operating_loop.md, docs/automation_steering.md, state/status.md, state/next_actions.md, the most recently modified logs/*.md file (`ls -t logs/*.md | head -1`), and git status --short --branch.
 
 Choose exactly one bounded cycle: harvest, structure, eval, automation, synthesis, or publish. Score candidate actions using docs/automation_steering.md, then pick the highest-value action that can finish in one run. Produce one durable artifact or one clearly logged negative result. Prefer the next action with the highest learning per minute. Use official OpenAI docs for OpenAI/Codex facts and use current web research when claims may have changed.
 

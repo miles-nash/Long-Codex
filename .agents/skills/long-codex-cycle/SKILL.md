@@ -17,7 +17,7 @@ Read these files first:
 4. `docs/automation_steering.md`
 5. `state/status.md`
 6. `state/next_actions.md`
-7. latest `logs/*.md`
+7. most recently modified `logs/*.md` (`ls -t logs/*.md | head -1`)
 
 Then run:
 

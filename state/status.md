@@ -19,6 +19,9 @@ The repo now has an initial long-horizon Codex scaffold:
 - GitHub remote `origin` set to `https://github.com/miles-nash/Long-Codex.git`
 - initial scaffold and handoff commits pushed to `origin/main`; use `git log --oneline -3` for exact history
 - heartbeat prompt updated to read `docs/automation_steering.md` and report a useful-hour score
+- first heartbeat wakeup observed and scored in `state/useful_hour_scores.md`
+- "latest log" instructions now use modification time, not filename sort
+- live heartbeat automation updated with the modification-time log rule
 
 ## Decisions
 
@@ -29,12 +32,13 @@ The repo now has an initial long-horizon Codex scaffold:
 - Enable Codex memories in `~/.codex/config.toml`, but keep required guidance in repo files.
 - Make the heartbeat choose work by a lightweight value score, not by recency alone.
 - Preserve exact evidence paths and source URLs; summaries should point back to dereferenceable evidence.
+- Resolve "latest log" by modification time because descriptive filenames are not reliable chronological keys.
 
 ## Known Gaps
 
 - No empirical `codex exec --json` eval suite exists yet.
 - The repo has not yet accumulated multiple hourly run logs, so the synthesis layer is thin.
-- The automation needs to be observed after its next wakeup and adjusted if the prompt is too vague or too heavy.
+- The automation needs one more observed wakeup before judging the steering policy stable.
 
 ## Recovery Instructions
 

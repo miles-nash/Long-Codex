@@ -9,7 +9,7 @@ Read the stable state in this order:
 1. `docs/spec.md`
 2. `state/status.md`
 3. `state/next_actions.md`
-4. latest `logs/*.md`
+4. most recently modified `logs/*.md` (`ls -t logs/*.md | head -1`)
 5. relevant files under `docs/research/`
 
 Then run:
