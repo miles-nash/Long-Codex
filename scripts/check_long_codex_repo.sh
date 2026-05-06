@@ -6,8 +6,12 @@ required_files=(
   "AGENTS.md"
   "docs/spec.md"
   "docs/operating_loop.md"
+  "docs/automation_steering.md"
   "docs/automation_prompt.md"
   "docs/research/2026-05-06-long-horizon-codex.md"
+  "docs/research/2026-05-06-deep-agent-memory.md"
+  "docs/useful_hour_scorecard.md"
+  "docs/decision_log.md"
   "state/status.md"
   "state/next_actions.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
@@ -28,6 +32,11 @@ fi
 
 if ! grep -q "https://developers.openai.com" docs/research/2026-05-06-long-horizon-codex.md; then
   echo "research note is missing OpenAI source links" >&2
+  missing=1
+fi
+
+if ! grep -q "https://arxiv.org/abs/2603.04257" docs/research/2026-05-06-deep-agent-memory.md; then
+  echo "deep research note is missing Memex source link" >&2
   missing=1
 fi
 

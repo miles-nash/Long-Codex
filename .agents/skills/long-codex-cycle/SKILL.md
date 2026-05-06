@@ -14,9 +14,10 @@ Read these files first:
 1. `AGENTS.md`
 2. `docs/spec.md`
 3. `docs/operating_loop.md`
-4. `state/status.md`
-5. `state/next_actions.md`
-6. latest `logs/*.md`
+4. `docs/automation_steering.md`
+5. `state/status.md`
+6. `state/next_actions.md`
+7. latest `logs/*.md`
 
 Then run:
 
@@ -30,11 +31,13 @@ git status --short --branch
 Pick exactly one:
 
 - `research`: source-backed investigation and distillation.
+- `harvest`: source-backed investigation and distillation.
 - `structure`: improve docs, state, handoff, or plan.
 - `skill`: improve this skill.
 - `automation`: improve heartbeat prompt, cadence, or safety.
 - `eval`: add or run a verification check.
 - `synthesis`: compress logs and decisions into reusable principles.
+- `publish`: commit and push a coherent verified update.
 
 Choose the smallest cycle that creates durable learning.
 
