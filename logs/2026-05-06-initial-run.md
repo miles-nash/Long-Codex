@@ -17,6 +17,7 @@ Research how to make Codex sessions run longer and provide more value, then modi
 - Enabled Codex memories in `~/.codex/config.toml`.
 - Created active thread heartbeat automation `long-codex-hourly-continuation`.
 - Connected the empty GitHub repo `miles-nash/Long-Codex` as `origin`.
+- Pushed the initial scaffold to `origin/main`.
 
 ## Key Takeaway
 
@@ -32,4 +33,4 @@ Initial verification target:
 
 ## Next
 
-Push the initial scaffold, then observe whether the first `long-codex-hourly-continuation` wakeup can follow the durable state without reorientation drag.
+Observe whether the first `long-codex-hourly-continuation` wakeup can follow the durable state without reorientation drag.
