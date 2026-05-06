@@ -18,6 +18,7 @@ The core idea is simple: do not ask future sessions to remember the project from
 - `docs/spec.md`: mission, constraints, non-goals, definition of done.
 - `docs/operating_loop.md`: the repeatable cycle each long-running session should follow.
 - `docs/research/`: distilled research and source notes.
+- `docs/source_ledger.md`: source-backed claims mapped to evidence paths and next uses.
 - `state/status.md`: current project state and decisions.
 - `state/next_actions.md`: prioritized queue for the next automation.
 - `logs/`: timestamped run notes.

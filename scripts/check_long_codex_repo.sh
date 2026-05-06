@@ -13,6 +13,7 @@ required_files=(
   "docs/useful_hour_scorecard.md"
   "docs/decision_log.md"
   "docs/heartbeat_synthesis.md"
+  "docs/source_ledger.md"
   "evals/long_codex_cycle_smoke.md"
   "state/status.md"
   "state/next_actions.md"
@@ -61,6 +62,21 @@ fi
 
 if ! grep -q "Keep the active heartbeat automation as-is" docs/heartbeat_synthesis.md; then
   echo "heartbeat synthesis is missing automation decision" >&2
+  missing=1
+fi
+
+if ! grep -q "OpenAI, Codex best practices" docs/source_ledger.md; then
+  echo "source ledger is missing OpenAI Codex best-practices row" >&2
+  missing=1
+fi
+
+if ! grep -q "Memex(RL)" docs/source_ledger.md; then
+  echo "source ledger is missing indexed-memory row" >&2
+  missing=1
+fi
+
+if ! grep -q "MemoryArena" docs/source_ledger.md; then
+  echo "source ledger is missing memory-action eval row" >&2
   missing=1
 fi
 

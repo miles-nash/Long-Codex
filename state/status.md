@@ -24,6 +24,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - live heartbeat automation updated with the modification-time log rule
 - `codex exec --json` smoke eval added and passed in `scripts/eval_long_codex_cycle.py`
 - first two heartbeat runs synthesized in `docs/heartbeat_synthesis.md`; prompt kept as-is
+- source ledger added in `docs/source_ledger.md` to map claims to evidence paths and implications
 
 ## Decisions
 
@@ -37,12 +38,13 @@ The repo now has an initial long-horizon Codex scaffold:
 - Resolve "latest log" by modification time because descriptive filenames are not reliable chronological keys.
 - Run nested Codex evals in a temporary repo copy with `approval_policy="never"` and `workspace-write`, never against the live project.
 - Keep the active heartbeat prompt unchanged after two successful observed runs; improve memory structure next.
+- Use `docs/source_ledger.md` as the first stop for source-backed claims before reopening full research notes.
 
 ## Known Gaps
 
 - The eval suite has one smoke test only; it does not yet measure action quality or useful-hour score.
 - The repo has enough heartbeat logs for initial synthesis, but not yet for weekly trend analysis.
-- There is no source ledger mapping claims to evidence paths and implications.
+- Source ledger exists, but the repo still lacks a stale-open-loop list.
 
 ## Recovery Instructions
 

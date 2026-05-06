@@ -50,3 +50,20 @@ Score: 11/12
 - Restraint: 1 - updated the structural check to require the synthesis artifact, which is useful but slightly expands the maintenance surface.
 
 Result: useful hour. The automation should remain active unchanged; next work should build the source ledger.
+
+## 2026-05-06 03:34 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `structure`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/source_ledger.md`.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` before and after edits.
+- Learning: 2 - turned scattered research claims into a dereferenceable ledger organized by future use.
+- Steering: 2 - followed the highest-priority next action and shifted from synthesis to memory structure.
+- Handoff: 2 - updated status, next actions, score ledger, and run log.
+- Restraint: 2 - kept the cycle to one durable memory artifact and a small structural check update.
+
+Result: excellent hour. The next bottleneck is automated freshness/link checking and richer eval summaries.
