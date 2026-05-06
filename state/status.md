@@ -25,6 +25,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `codex exec --json` smoke eval added and passed in `scripts/eval_long_codex_cycle.py`
 - first two heartbeat runs synthesized in `docs/heartbeat_synthesis.md`; prompt kept as-is
 - source ledger added in `docs/source_ledger.md` to map claims to evidence paths and implications
+- active heartbeat cadence temporarily increased from 60 minutes to 30 minutes after Miles said to work more than hourly for now
 
 ## Decisions
 
@@ -39,6 +40,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Run nested Codex evals in a temporary repo copy with `approval_policy="never"` and `workspace-write`, never against the live project.
 - Keep the active heartbeat prompt unchanged after two successful observed runs; improve memory structure next.
 - Use `docs/source_ledger.md` as the first stop for source-backed claims before reopening full research notes.
+- Keep the same steering prompt while increasing cadence; faster cycles should still be bounded by artifact, verification, and handoff.
 
 ## Known Gaps
 
