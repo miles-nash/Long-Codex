@@ -101,3 +101,20 @@ Score: 12/12
 - Restraint: 2 - kept summary output compact and omitted successful-run stderr noise.
 
 Result: excellent hour. The next best step is a behavior eval for avoiding a logged dead end.
+
+## 2026-05-06 09:10 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - added `scripts/eval_dead_end_avoidance.py`, `evals/dead_end_avoidance_prompt.md`, and `evals/last_dead_end_avoidance_summary.json`.
+- Verification: 2 - ran dry-run, full nested dead-end eval, and `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - proved the eval harness can test a behavior property, not just smoke completion.
+- Steering: 2 - followed the top next action and kept the test in a temporary repo copy.
+- Handoff: 2 - updated status, next actions, score ledger, and run log.
+- Restraint: 2 - avoided refactoring shared eval code until there is a third eval.
+
+Result: excellent hour. The next best step is adding a stale-open-loop list for blockers, parked ideas, and retired ideas.

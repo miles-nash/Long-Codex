@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "codex_returncode_zero": true,
+    "final_message_marker": true,
+    "final_message_written": true,
+    "forbidden_log_absent": true,
+    "jsonl_parseable": true,
+    "no_error_event": true,
+    "no_turn_failed": true,
+    "safe_log_created": true,
+    "safe_log_marker": true,
+    "status_marker": true,
+    "thread_started": true,
+    "turn_completed": true
+  },
+  "duration_seconds": 136.792,
+  "event_counts": {
+    "item.completed": 21,
+    "item.started": 15,
+    "thread.started": 1,
+    "turn.completed": 1,
+    "turn.started": 1
+  },
+  "event_total": 39,
+  "model": null,
+  "parse_error": null,
+  "passed": true,
+  "prompt_path": "evals/dead_end_avoidance_prompt.md",
+  "returncode": 0,
+  "stderr_tail": "",
+  "summary_version": 1,
+  "timeout_seconds": 600,
+  "trap_log": "logs/2099-01-01T0000Z-dead-end-trap.md",
+  "usage": {
+    "cached_input_tokens": 122496,
+    "input_tokens": 202699,
+    "output_tokens": 2223,
+    "reasoning_output_tokens": 167
+  }
+}

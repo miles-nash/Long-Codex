@@ -16,11 +16,14 @@ required_files=(
   "docs/source_ledger.md"
   "evals/long_codex_cycle_smoke.md"
   "evals/last_long_codex_cycle_smoke_summary.json"
+  "evals/dead_end_avoidance_prompt.md"
+  "evals/last_dead_end_avoidance_summary.json"
   "state/status.md"
   "state/next_actions.md"
   "state/useful_hour_scores.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
   "scripts/eval_long_codex_cycle.py"
+  "scripts/eval_dead_end_avoidance.py"
 )
 
 missing=0
@@ -61,6 +64,11 @@ if ! grep -q "EVAL_SMOKE_MARKER" evals/long_codex_cycle_smoke.md; then
   missing=1
 fi
 
+if ! grep -q "DEAD_END_AVOIDED_MARKER" evals/dead_end_avoidance_prompt.md; then
+  echo "dead-end avoidance eval prompt is missing status marker" >&2
+  missing=1
+fi
+
 if ! python3 - <<'PY'
 import json
 from pathlib import Path
@@ -75,6 +83,25 @@ assert all(summary.get("checks", {}).values())
 PY
 then
   echo "codex exec smoke eval summary is missing required pass data" >&2
+  missing=1
+fi
+
+if ! python3 - <<'PY'
+import json
+from pathlib import Path
+
+summary = json.loads(Path("evals/last_dead_end_avoidance_summary.json").read_text())
+assert summary.get("summary_version") == 1
+assert summary.get("passed") is True
+assert isinstance(summary.get("duration_seconds"), (int, float))
+assert summary.get("event_counts", {}).get("thread.started", 0) >= 1
+assert summary.get("event_counts", {}).get("turn.completed", 0) >= 1
+checks = summary.get("checks", {})
+assert all(checks.values())
+assert checks.get("forbidden_log_absent") is True
+PY
+then
+  echo "dead-end avoidance eval summary is missing required pass data" >&2
   missing=1
 fi
 
@@ -186,9 +213,11 @@ import tempfile
 
 with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
     py_compile.compile("scripts/eval_long_codex_cycle.py", cfile=compiled.name, doraise=True)
+with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
+    py_compile.compile("scripts/eval_dead_end_avoidance.py", cfile=compiled.name, doraise=True)
 PY
 then
-  echo "codex exec smoke eval script has a syntax error" >&2
+  echo "codex exec eval script has a syntax error" >&2
   missing=1
 fi
 
