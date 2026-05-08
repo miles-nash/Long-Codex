@@ -186,3 +186,20 @@ Score: 12/12
 - Restraint: 2 - kept the check deterministic and limited to ledger shape and score arithmetic.
 
 Result: excellent hour. The next best step is reviewing the temporary faster cadence after one more heartbeat run.
+
+## 2026-05-08 12:24 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/cadence_review.md` and wired it into `scripts/check_long_codex_repo.sh`.
+- Verification: 2 - verified the live automation config and ran `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - confirmed the active schedule is still 30 minutes and that faster-cadence runs remain distinct and high-scoring.
+- Steering: 2 - followed the top next action and avoided changing a working automation without evidence of churn.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the live automation unchanged and deferred weekly synthesis automation.
+
+Result: excellent hour. The next best step is a current-practices harvest for the source ledger.

@@ -14,17 +14,18 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Faster-cadence review | The cadence is temporarily faster after Miles said to work more than hourly for now. | `docs/heartbeat_synthesis.md`, `state/useful_hour_scores.md`, `logs/2026-05-08T0715Z-open-loops.md`, `logs/2026-05-08T0749Z-eval-summary-policy.md`, `logs/2026-05-08T0827Z-heartbeat-trend-synthesis.md`, `logs/2026-05-08T0912Z-score-ledger-check.md` | After one more heartbeat run, decide whether to keep 30-minute-ish cadence or return to hourly. |
+| Current-practices harvest | The internal loop is now stable enough to pull in another current source-backed practice. | `docs/source_ledger.md`, `docs/research/2026-05-06-long-horizon-codex.md` | Harvest one current source and add the claim/evidence/use to `docs/source_ledger.md`. |
+| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops. | `docs/cadence_review.md`, `state/useful_hour_scores.md` | Revisit only if a watchpoint triggers or after two more heartbeat runs. |
 
 ## Parked Ideas
 
-- Weekly synthesis automation: wait until hourly or half-hourly logs begin repeating or growing too long.
 - Global user skill: wait until the repo-scoped skill proves stable across more cycles.
 - Shared eval harness module: wait until a third eval creates real duplication.
 - Expanded useful-hour scorecard: keep the current scorecard until runs reveal missing dimensions.
 - Eval summary usage policy revisit: the current decision is to keep compact `usage` fields; reopen only if summaries become noisy or expensive.
 - Useful-hour behavior eval: wait until the score ledger shape is checked or manual scoring proves insufficient.
 - Useful-hour score ledger check exceptions: revisit only if a real blocked run scores below 7 and needs explicit syntax.
+- Weekly synthesis automation: wait until logs become repetitive or hard to scan.
 
 ## Retired Ideas
 
@@ -35,3 +36,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Eval summary usage decision: resolved in `docs/eval_summary_policy.md`.
 - Post-open-loop heartbeat trend synthesis: resolved in `docs/heartbeat_synthesis.md`; keep the heartbeat as-is and defer weekly synthesis automation.
 - Useful-hour score ledger consistency: resolved in `scripts/check_useful_hour_scores.py`.
+- Faster-cadence review: resolved in `docs/cadence_review.md`; keep 30-minute heartbeat active while watchpoints stay clear.

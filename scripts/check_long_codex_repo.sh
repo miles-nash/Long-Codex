@@ -13,6 +13,7 @@ required_files=(
   "docs/useful_hour_scorecard.md"
   "docs/decision_log.md"
   "docs/heartbeat_synthesis.md"
+  "docs/cadence_review.md"
   "docs/source_ledger.md"
   "docs/eval_summary_policy.md"
   "evals/long_codex_cycle_smoke.md"
@@ -115,6 +116,11 @@ fi
 
 if ! grep -q "Keep the active heartbeat automation as-is" docs/heartbeat_synthesis.md; then
   echo "heartbeat synthesis is missing automation decision" >&2
+  missing=1
+fi
+
+if ! grep -q "FREQ=MINUTELY;INTERVAL=30" docs/cadence_review.md; then
+  echo "cadence review is missing active 30-minute schedule decision" >&2
   missing=1
 fi
 

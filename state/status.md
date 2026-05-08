@@ -33,6 +33,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - eval summary field policy added in `docs/eval_summary_policy.md`
 - faster-cadence heartbeat trend synthesis updated in `docs/heartbeat_synthesis.md`; prompt and cadence kept as-is, weekly synthesis automation deferred
 - useful-hour score ledger consistency check added in `scripts/check_useful_hour_scores.py`
+- cadence review added in `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` with watchpoints
 
 ## Decisions
 
@@ -55,6 +56,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep `usage` token fields in compact eval summaries when available, but do not make missing usage a pass/fail condition unless an eval explicitly targets token cost.
 - Faster cadence is still useful when each run closes a distinct open loop; defer weekly synthesis automation until logs become repetitive or hard to scan.
 - Check the useful-hour score ledger's rubric shape before adding heavier model-graded useful-hour evaluation.
+- Keep the temporary faster heartbeat cadence while runs remain distinct and high-scoring; return to hourly if cadence watchpoints trigger.
 
 ## Known Gaps
 
@@ -62,6 +64,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - The useful-hour score ledger is now shape-checked, but the scores are still human/rubric judgments rather than model-graded quality measurements.
 - Weekly synthesis automation is not yet justified by log volume or repetition.
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
+- The source ledger has not yet been refreshed with a post-setup current-practices harvest.
 
 ## Recovery Instructions
 
