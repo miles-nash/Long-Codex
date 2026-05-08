@@ -20,6 +20,7 @@ required_files=(
   "evals/last_dead_end_avoidance_summary.json"
   "state/status.md"
   "state/next_actions.md"
+  "state/open_loops.md"
   "state/useful_hour_scores.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
   "scripts/eval_long_codex_cycle.py"
@@ -124,6 +125,13 @@ if ! grep -q "MemoryArena" docs/source_ledger.md; then
   echo "source ledger is missing memory-action eval row" >&2
   missing=1
 fi
+
+for heading in "## Active Blockers" "## Active Follow-Ups" "## Parked Ideas" "## Retired Ideas"; do
+  if ! grep -q "$heading" state/open_loops.md; then
+    echo "open loops file is missing heading: $heading" >&2
+    missing=1
+  fi
+done
 
 if ! python3 - <<'PY'
 from __future__ import annotations

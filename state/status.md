@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-05-06
+Last updated: 2026-05-08
 
 ## Current State
 
@@ -29,6 +29,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `scripts/check_long_codex_repo.sh` now detects stale state dates, research notes without sources, and missing source-ledger evidence paths
 - `scripts/eval_long_codex_cycle.py` now emits `evals/last_long_codex_cycle_smoke_summary.json` with duration, event counts, checks, and usage
 - dead-end avoidance eval added and passed in `scripts/eval_dead_end_avoidance.py`
+- stale-open-loop state added in `state/open_loops.md`, with active blockers, active follow-ups, parked ideas, and retired ideas
 
 ## Decisions
 
@@ -47,12 +48,13 @@ The repo now has an initial long-horizon Codex scaffold:
 - Treat freshness and source-link checks as part of the minimum durable-state contract.
 - Keep eval summary artifacts compact enough to commit; omit successful-run stderr noise.
 - Behavior evals should plant controlled traps in temporary repo copies, then verify the agent avoids repeating the trap.
+- Keep stale-open-loop state separate from the priority queue so future sessions can distinguish active work from parked or retired ideas.
 
 ## Known Gaps
 
 - The eval suite has a smoke test and a dead-end avoidance behavior test; it does not yet measure useful-hour score.
 - The repo has enough heartbeat logs for initial synthesis, but not yet for weekly trend analysis.
-- Source ledger exists, but the repo still lacks a stale-open-loop list.
+- `state/open_loops.md` exists, but it has not yet been exercised across multiple future runs.
 
 ## Recovery Instructions
 

@@ -118,3 +118,20 @@ Score: 12/12
 - Restraint: 2 - avoided refactoring shared eval code until there is a third eval.
 
 Result: excellent hour. The next best step is adding a stale-open-loop list for blockers, parked ideas, and retired ideas.
+
+## 2026-05-08 00:15 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `structure`
+
+Score: 12/12
+
+- Artifact: 2 - added `state/open_loops.md` and wired it into the repo check.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` before and after edits.
+- Learning: 2 - separated blockers, active follow-ups, parked ideas, and retired ideas so future runs can steer without rereading every log.
+- Steering: 2 - followed the top next action and avoided adding premature automation.
+- Handoff: 2 - updated status, next actions, score ledger, open-loop state, and run log.
+- Restraint: 2 - kept the cycle to one memory artifact plus a minimal shape check.
+
+Result: excellent hour. The next best step is heartbeat trend synthesis after two more runs, unless a concrete blocker appears first.
