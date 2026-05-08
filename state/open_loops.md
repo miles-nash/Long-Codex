@@ -14,8 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Useful-hour score ledger consistency | The score ledger now steers automation decisions, but its rubric shape is not checked. | `docs/useful_hour_scorecard.md`, `state/useful_hour_scores.md` | Add a lightweight check before adding a model-graded useful-hour eval. |
-| Faster-cadence review | The cadence is temporarily faster after Miles said to work more than hourly for now. | `docs/heartbeat_synthesis.md`, `state/useful_hour_scores.md`, `logs/2026-05-08T0715Z-open-loops.md`, `logs/2026-05-08T0749Z-eval-summary-policy.md`, `logs/2026-05-08T0827Z-heartbeat-trend-synthesis.md` | After two more heartbeat runs, decide whether to keep 30-minute-ish cadence or return to hourly. |
+| Faster-cadence review | The cadence is temporarily faster after Miles said to work more than hourly for now. | `docs/heartbeat_synthesis.md`, `state/useful_hour_scores.md`, `logs/2026-05-08T0715Z-open-loops.md`, `logs/2026-05-08T0749Z-eval-summary-policy.md`, `logs/2026-05-08T0827Z-heartbeat-trend-synthesis.md`, `logs/2026-05-08T0912Z-score-ledger-check.md` | After one more heartbeat run, decide whether to keep 30-minute-ish cadence or return to hourly. |
 
 ## Parked Ideas
 
@@ -25,6 +24,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Expanded useful-hour scorecard: keep the current scorecard until runs reveal missing dimensions.
 - Eval summary usage policy revisit: the current decision is to keep compact `usage` fields; reopen only if summaries become noisy or expensive.
 - Useful-hour behavior eval: wait until the score ledger shape is checked or manual scoring proves insufficient.
+- Useful-hour score ledger check exceptions: revisit only if a real blocked run scores below 7 and needs explicit syntax.
 
 ## Retired Ideas
 
@@ -34,3 +34,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Duplicate automation for faster cadence: retired because updating the existing heartbeat preserves continuity.
 - Eval summary usage decision: resolved in `docs/eval_summary_policy.md`.
 - Post-open-loop heartbeat trend synthesis: resolved in `docs/heartbeat_synthesis.md`; keep the heartbeat as-is and defer weekly synthesis automation.
+- Useful-hour score ledger consistency: resolved in `scripts/check_useful_hour_scores.py`.

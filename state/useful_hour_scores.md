@@ -169,3 +169,20 @@ Score: 12/12
 - Restraint: 2 - kept the heartbeat prompt and automation unchanged.
 
 Result: excellent hour. The next best step is a lightweight consistency check for useful-hour score ledger entries.
+
+## 2026-05-08 02:12 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - added `scripts/check_useful_hour_scores.py` and wired it into `scripts/check_long_codex_repo.sh`.
+- Verification: 2 - ran the new ledger check and `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - made the useful-hour score ledger's implicit rubric contract executable before adding heavier quality evaluation.
+- Steering: 2 - followed the top next action and avoided a premature model-graded eval.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the check deterministic and limited to ledger shape and score arithmetic.
+
+Result: excellent hour. The next best step is reviewing the temporary faster cadence after one more heartbeat run.

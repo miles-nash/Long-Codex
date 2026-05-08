@@ -24,6 +24,7 @@ required_files=(
   "state/open_loops.md"
   "state/useful_hour_scores.md"
   ".agents/skills/long-codex-cycle/SKILL.md"
+  "scripts/check_useful_hour_scores.py"
   "scripts/eval_long_codex_cycle.py"
   "scripts/eval_dead_end_avoidance.py"
 )
@@ -58,6 +59,11 @@ fi
 
 if ! grep -q "long-codex-hourly-continuation" state/useful_hour_scores.md; then
   echo "useful hour score ledger is missing heartbeat entry" >&2
+  missing=1
+fi
+
+if ! python3 scripts/check_useful_hour_scores.py >/dev/null; then
+  echo "useful hour score ledger consistency check failed" >&2
   missing=1
 fi
 
@@ -230,6 +236,8 @@ if ! python3 - <<'PY'
 import py_compile
 import tempfile
 
+with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
+    py_compile.compile("scripts/check_useful_hour_scores.py", cfile=compiled.name, doraise=True)
 with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
     py_compile.compile("scripts/eval_long_codex_cycle.py", cfile=compiled.name, doraise=True)
 with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:

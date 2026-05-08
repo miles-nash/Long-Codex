@@ -32,6 +32,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - stale-open-loop state added in `state/open_loops.md`, with active blockers, active follow-ups, parked ideas, and retired ideas
 - eval summary field policy added in `docs/eval_summary_policy.md`
 - faster-cadence heartbeat trend synthesis updated in `docs/heartbeat_synthesis.md`; prompt and cadence kept as-is, weekly synthesis automation deferred
+- useful-hour score ledger consistency check added in `scripts/check_useful_hour_scores.py`
 
 ## Decisions
 
@@ -53,11 +54,12 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep stale-open-loop state separate from the priority queue so future sessions can distinguish active work from parked or retired ideas.
 - Keep `usage` token fields in compact eval summaries when available, but do not make missing usage a pass/fail condition unless an eval explicitly targets token cost.
 - Faster cadence is still useful when each run closes a distinct open loop; defer weekly synthesis automation until logs become repetitive or hard to scan.
+- Check the useful-hour score ledger's rubric shape before adding heavier model-graded useful-hour evaluation.
 
 ## Known Gaps
 
 - The eval suite has a smoke test and a dead-end avoidance behavior test; it does not yet measure useful-hour score.
-- The useful-hour score ledger is manually structured; it does not yet have a consistency check for rubric fields.
+- The useful-hour score ledger is now shape-checked, but the scores are still human/rubric judgments rather than model-graded quality measurements.
 - Weekly synthesis automation is not yet justified by log volume or repetition.
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 
