@@ -30,6 +30,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `scripts/eval_long_codex_cycle.py` now emits `evals/last_long_codex_cycle_smoke_summary.json` with duration, event counts, checks, and usage
 - dead-end avoidance eval added and passed in `scripts/eval_dead_end_avoidance.py`
 - stale-open-loop state added in `state/open_loops.md`, with active blockers, active follow-ups, parked ideas, and retired ideas
+- eval summary field policy added in `docs/eval_summary_policy.md`
 
 ## Decisions
 
@@ -49,6 +50,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep eval summary artifacts compact enough to commit; omit successful-run stderr noise.
 - Behavior evals should plant controlled traps in temporary repo copies, then verify the agent avoids repeating the trap.
 - Keep stale-open-loop state separate from the priority queue so future sessions can distinguish active work from parked or retired ideas.
+- Keep `usage` token fields in compact eval summaries when available, but do not make missing usage a pass/fail condition unless an eval explicitly targets token cost.
 
 ## Known Gaps
 

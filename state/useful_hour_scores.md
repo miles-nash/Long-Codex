@@ -135,3 +135,20 @@ Score: 12/12
 - Restraint: 2 - kept the cycle to one memory artifact plus a minimal shape check.
 
 Result: excellent hour. The next best step is heartbeat trend synthesis after two more runs, unless a concrete blocker appears first.
+
+## 2026-05-08 00:49 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `synthesis`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/eval_summary_policy.md` and wired it into the repo check.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` before and after edits.
+- Learning: 2 - resolved the usage/token-field ambiguity by keeping compact telemetry while making it non-fatal unless token cost is the test.
+- Steering: 2 - skipped premature heartbeat trend synthesis and chose the highest-value ready item.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - did not refactor eval scripts or add a third eval before the policy was needed.
+
+Result: excellent hour. The next best step remains heartbeat trend synthesis after one more heartbeat run.

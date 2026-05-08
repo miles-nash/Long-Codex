@@ -14,6 +14,7 @@ required_files=(
   "docs/decision_log.md"
   "docs/heartbeat_synthesis.md"
   "docs/source_ledger.md"
+  "docs/eval_summary_policy.md"
   "evals/long_codex_cycle_smoke.md"
   "evals/last_long_codex_cycle_smoke_summary.json"
   "evals/dead_end_avoidance_prompt.md"
@@ -123,6 +124,16 @@ fi
 
 if ! grep -q "MemoryArena" docs/source_ledger.md; then
   echo "source ledger is missing memory-action eval row" >&2
+  missing=1
+fi
+
+if ! grep -q 'Keep `usage`' docs/eval_summary_policy.md; then
+  echo "eval summary policy is missing usage-field decision" >&2
+  missing=1
+fi
+
+if ! grep -q 'summary_version' docs/eval_summary_policy.md; then
+  echo "eval summary policy is missing summary_version guidance" >&2
   missing=1
 fi
 
