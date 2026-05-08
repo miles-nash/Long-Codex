@@ -31,6 +31,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - dead-end avoidance eval added and passed in `scripts/eval_dead_end_avoidance.py`
 - stale-open-loop state added in `state/open_loops.md`, with active blockers, active follow-ups, parked ideas, and retired ideas
 - eval summary field policy added in `docs/eval_summary_policy.md`
+- faster-cadence heartbeat trend synthesis updated in `docs/heartbeat_synthesis.md`; prompt and cadence kept as-is, weekly synthesis automation deferred
 
 ## Decisions
 
@@ -51,12 +52,14 @@ The repo now has an initial long-horizon Codex scaffold:
 - Behavior evals should plant controlled traps in temporary repo copies, then verify the agent avoids repeating the trap.
 - Keep stale-open-loop state separate from the priority queue so future sessions can distinguish active work from parked or retired ideas.
 - Keep `usage` token fields in compact eval summaries when available, but do not make missing usage a pass/fail condition unless an eval explicitly targets token cost.
+- Faster cadence is still useful when each run closes a distinct open loop; defer weekly synthesis automation until logs become repetitive or hard to scan.
 
 ## Known Gaps
 
 - The eval suite has a smoke test and a dead-end avoidance behavior test; it does not yet measure useful-hour score.
-- The repo has enough heartbeat logs for initial synthesis, but not yet for weekly trend analysis.
-- `state/open_loops.md` exists, but it has not yet been exercised across multiple future runs.
+- The useful-hour score ledger is manually structured; it does not yet have a consistency check for rubric fields.
+- Weekly synthesis automation is not yet justified by log volume or repetition.
+- `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 
 ## Recovery Instructions
 
