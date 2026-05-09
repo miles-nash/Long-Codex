@@ -1,6 +1,6 @@
 # Source Ledger
 
-Last updated: 2026-05-06
+Last updated: 2026-05-08
 
 ## Purpose
 
@@ -36,4 +36,4 @@ This ledger maps important claims to source URLs, local evidence paths, and prac
 | MUSE: https://arxiv.org/abs/2510.08002 | Agents can convert subtasks into structured experience for future planning. | `docs/research/2026-05-06-long-horizon-codex.md` | End each run with structured status, next actions, and score entries. | Use when refining run-log templates. |
 | H2R: https://arxiv.org/abs/2509.12810 | Separating high-level planning memory from low-level execution memory helps multi-task agents. | `docs/research/2026-05-06-long-horizon-codex.md` | Keep plans and decisions separate from raw logs and command evidence. | Use when adding a stale-open-loop list. |
 | MemoryAgentBench: https://arxiv.org/abs/2507.05257 | Memory evals should test retrieval, test-time learning, long-range understanding, and selective forgetting. | `docs/research/2026-05-06-long-horizon-codex.md` | The eval suite should eventually test more than smoke completion. | Use when broadening eval coverage beyond status/log markers. |
-
+| Anthropic, How we built our multi-agent research system: https://www.anthropic.com/engineering/built-multi-agent-research-system | Multi-agent and long-context systems preserve fidelity better when subagents write durable artifacts and pass lightweight references instead of funneling all content through the coordinator. | `docs/research/2026-05-08-agent-artifact-handoffs.md` | If Long Codex uses subagents, require artifact paths plus short findings so later sessions can inspect evidence directly. | Use before adding worker or explorer subagents to a cycle. |

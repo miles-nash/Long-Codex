@@ -203,3 +203,20 @@ Score: 12/12
 - Restraint: 2 - kept the live automation unchanged and deferred weekly synthesis automation.
 
 Result: excellent hour. The next best step is a current-practices harvest for the source ledger.
+
+## 2026-05-08 15:48 America/Los_Angeles
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `harvest`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/research/2026-05-08-agent-artifact-handoffs.md` and a source-ledger row.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh`, including source-link and ledger-evidence checks.
+- Learning: 2 - harvested the artifact-handoff practice for subagent work from a current agent-system source.
+- Steering: 2 - followed the top next action and kept the harvest to one practice.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - did not add subagents or new automation before encoding the practice.
+
+Result: excellent hour. The next best step is adding a short subagent artifact-handoff rule to the operating loop and repo skill.

@@ -4,7 +4,7 @@ Last updated: 2026-05-08
 
 ## Priority Queue
 
-1. Harvest one current source-backed practice for long-horizon agents and add it to `docs/source_ledger.md`.
+1. Add a short subagent artifact-handoff rule to `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`.
 2. Review `docs/cadence_review.md` only if a cadence watchpoint triggers or after two more heartbeat runs.
 3. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
 4. Add a useful-hour score behavior eval only if checked ledger entries show manual scoring is not enough.
@@ -20,3 +20,4 @@ Last updated: 2026-05-08
 - Revisit `docs/eval_summary_policy.md` only if summary artifacts become noisy or expensive.
 - Revisit `scripts/check_useful_hour_scores.py` if future score entries need an explicit blocked-run exception.
 - Return the heartbeat to hourly if `docs/cadence_review.md` watchpoints trigger.
+- Use subagents only for independent branches where durable artifact handoffs will reduce context pressure.

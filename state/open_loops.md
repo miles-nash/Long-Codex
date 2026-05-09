@@ -14,7 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Current-practices harvest | The internal loop is now stable enough to pull in another current source-backed practice. | `docs/source_ledger.md`, `docs/research/2026-05-06-long-horizon-codex.md` | Harvest one current source and add the claim/evidence/use to `docs/source_ledger.md`. |
+| Subagent artifact handoff rule | The harvested practice should become a lightweight rule before this repo uses subagents for parallel work. | `docs/research/2026-05-08-agent-artifact-handoffs.md`, `docs/source_ledger.md` | Add a short rule to `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`. |
 | Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops. | `docs/cadence_review.md`, `state/useful_hour_scores.md` | Revisit only if a watchpoint triggers or after two more heartbeat runs. |
 
 ## Parked Ideas
@@ -26,6 +26,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Useful-hour behavior eval: wait until the score ledger shape is checked or manual scoring proves insufficient.
 - Useful-hour score ledger check exceptions: revisit only if a real blocked run scores below 7 and needs explicit syntax.
 - Weekly synthesis automation: wait until logs become repetitive or hard to scan.
+- Parallel subagent cycles: wait until a cycle has genuinely independent branches and can use artifact handoffs.
 
 ## Retired Ideas
 
@@ -37,3 +38,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Post-open-loop heartbeat trend synthesis: resolved in `docs/heartbeat_synthesis.md`; keep the heartbeat as-is and defer weekly synthesis automation.
 - Useful-hour score ledger consistency: resolved in `scripts/check_useful_hour_scores.py`.
 - Faster-cadence review: resolved in `docs/cadence_review.md`; keep 30-minute heartbeat active while watchpoints stay clear.
+- Current-practices harvest: resolved in `docs/research/2026-05-08-agent-artifact-handoffs.md` and `docs/source_ledger.md`.
