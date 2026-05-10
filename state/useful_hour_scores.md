@@ -237,3 +237,20 @@ Score: 12/12
 - Restraint: 2 - kept the rule conditional and did not spawn subagents without an independent-branch need.
 
 Result: excellent hour. The next best step is cadence watchpoint review now that two post-review heartbeat runs exist.
+
+## 2026-05-10 01:40 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - updated `docs/cadence_review.md` with the post-review cadence decision.
+- Verification: 2 - checked the live automation config and ran `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - confirmed two post-review runs were both distinct 12/12 artifacts, so no cadence watchpoint triggered.
+- Steering: 2 - followed the top next action and avoided changing a working heartbeat schedule.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the automation unchanged and deferred weekly synthesis automation.
+
+Result: excellent hour. The next best step is a lightweight source-ledger freshness check.

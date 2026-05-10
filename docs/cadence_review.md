@@ -41,3 +41,25 @@ Return to hourly or pause faster cadence if any of these happen:
 ## Next Use
 
 Use this review when deciding whether to update the automation schedule or add weekly synthesis.
+
+## Follow-Up Review: 2026-05-10
+
+### Evidence
+
+- Live automation config still shows `FREQ=MINUTELY;INTERVAL=30`.
+- Post-review run: `logs/2026-05-08T2248Z-current-practices-harvest.md`, score 12/12.
+- Post-review run: `logs/2026-05-10T0638Z-subagent-handoff-rule.md`, score 12/12.
+- The two post-review runs produced distinct artifacts: one current-practices harvest and one operating-rule update.
+- No cadence watchpoint has triggered.
+
+### Candidate Scores
+
+- Keep the 30-minute heartbeat active: score 9. Evidence remains strong, and the faster cadence is still producing distinct useful artifacts.
+- Return to hourly now: score 4. Would reduce activity, but there is no evidence of churn or low-value runs.
+- Add weekly synthesis automation now: score 3. Still premature because the logs are compact and the queue remains readable.
+
+### Decision
+
+Keep the active heartbeat automation unchanged at `FREQ=MINUTELY;INTERVAL=30`.
+
+Review cadence again if a watchpoint triggers or after two more heartbeat runs. The next non-cadence bottleneck is making sure source-ledger metadata stays fresh as new research notes land.

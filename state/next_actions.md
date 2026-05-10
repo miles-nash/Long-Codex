@@ -4,12 +4,13 @@ Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. Review `docs/cadence_review.md` after the two post-review heartbeat runs: `logs/2026-05-08T2248Z-current-practices-harvest.md` and `logs/2026-05-10T0638Z-subagent-handoff-rule.md`.
-2. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
-3. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
-4. Add a useful-hour score behavior eval only if checked ledger entries show manual scoring is not enough.
-5. Refactor shared code between `scripts/eval_long_codex_cycle.py` and `scripts/eval_dead_end_avoidance.py` only if a third eval is added.
-6. If repeated runs score below 7, update the automation before doing more research.
+1. Add a lightweight source-ledger freshness check so `docs/source_ledger.md` cannot lag behind new `docs/research/*.md` notes.
+2. Review `docs/cadence_review.md` only if a cadence watchpoint triggers or after two more heartbeat runs.
+3. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
+4. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
+5. Add a useful-hour score behavior eval only if checked ledger entries show manual scoring is not enough.
+6. Refactor shared code between `scripts/eval_long_codex_cycle.py` and `scripts/eval_dead_end_avoidance.py` only if a third eval is added.
+7. If repeated runs score below 7, update the automation before doing more research.
 
 ## Parking Lot
 

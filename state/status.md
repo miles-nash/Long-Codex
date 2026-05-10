@@ -36,6 +36,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - cadence review added in `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` with watchpoints
 - current-practices harvest added in `docs/research/2026-05-08-agent-artifact-handoffs.md` and `docs/source_ledger.md`
 - subagent artifact-handoff rule encoded in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`
+- cadence follow-up review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30`
 
 ## Decisions
 
@@ -61,6 +62,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep the temporary faster heartbeat cadence while runs remain distinct and high-scoring; return to hourly if cadence watchpoints trigger.
 - Subagent work should hand back durable artifact paths plus short findings, not chat-only summaries.
 - Use subagents only for independent branches where artifact-path handoffs reduce context pressure.
+- Keep the 30-minute heartbeat while runs remain distinct and 10+/12; review again after two more heartbeat runs or any watchpoint.
 
 ## Known Gaps
 
@@ -69,6 +71,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Weekly synthesis automation is not yet justified by log volume or repetition.
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
+- `docs/source_ledger.md` has source/evidence validation, but no freshness check against new research-note dates.
 
 ## Recovery Instructions
 
