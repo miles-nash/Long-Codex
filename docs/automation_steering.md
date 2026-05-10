@@ -1,6 +1,6 @@
 # Automation Steering Policy
 
-The hourly heartbeat should act like a careful lab assistant, not a restless autocomplete.
+The heartbeat should act like a careful lab assistant, not a restless autocomplete.
 
 ## Default Read Set
 

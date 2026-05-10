@@ -14,8 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Repeated no-ready-work watch | The first live no-ready-work branch succeeded; a second consecutive no-trigger wake would suggest the heartbeat may be too frequent for the current queue. | `logs/2026-05-10T1425Z-no-ready-work-observation.md`, `docs/automation_prompt.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | If no concrete trigger appears on the next hourly wake, review whether to pause or slow the heartbeat instead of logging another no-ready-work run. |
-| Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review only if hourly runs show drift, repetition, or a new concrete experiment ladder. |
+| Daily no-ready-work watch | The heartbeat is now daily after repeated no-trigger hourly wakes; another no-trigger daily wake may mean the automation should pause. | `docs/cadence_review.md`, `logs/2026-05-10T1425Z-no-ready-work-observation.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | If no concrete trigger appears on the next daily wake, consider pausing the heartbeat instead of logging repeated no-ready-work runs. |
 
 ## Parked Ideas
 
@@ -50,3 +49,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Cadence review after queue-exhaustion eval: resolved in `docs/cadence_review.md`; active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1`.
 - Eval harness maintenance assessment: resolved in `docs/eval_harness_maintenance.md`; duplication is acceptable until a concrete helper trigger occurs.
 - No-ready-work branch observation: resolved in `logs/2026-05-10T1425Z-no-ready-work-observation.md`; the first live hourly run followed the branch cleanly.
+- Repeated no-ready-work watch: resolved in `docs/cadence_review.md`; active heartbeat slowed to daily at `FREQ=DAILY;INTERVAL=1`.

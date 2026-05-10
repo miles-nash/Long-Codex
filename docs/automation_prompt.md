@@ -1,6 +1,6 @@
-# Canonical Hourly Heartbeat Prompt
+# Canonical Heartbeat Prompt
 
-Use this prompt for a thread heartbeat that keeps this work moving:
+Use this prompt for a thread heartbeat that keeps this work moving without inventing work:
 
 ```text
 Continue the Long Codex persistence project in /Users/milesnash/Documents/New project 6.

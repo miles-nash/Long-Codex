@@ -105,3 +105,24 @@ The next run should perform one bounded synthesis over recent logs and decisions
 Return the active heartbeat automation to hourly at `FREQ=HOURLY;INTERVAL=1`.
 
 This is not a rollback due to failure. It is the intended watchpoint behavior: fast cadence was useful while closing a concrete ladder of eval and cadence questions; hourly is now the better default until Miles asks for another burst or the queue names a new high-value experiment.
+
+## Follow-Up Review: 2026-05-10 09:25 America/Denver
+
+### Evidence
+
+- Live automation config was updated from `FREQ=HOURLY;INTERVAL=1` to `FREQ=DAILY;INTERVAL=1`.
+- First live no-ready-work branch succeeded in `logs/2026-05-10T1425Z-no-ready-work-observation.md`.
+- This wake again found no concrete trigger: repo check passed, no new user direction arrived, no new experiment ladder exists, and the queue remains conditional.
+- Repeating no-ready-work logs hourly would create the churn the queue-exhaustion eval was meant to prevent.
+
+### Candidate Scores
+
+- Slow the heartbeat to daily: score 9. Preserves continuity and gives the system a chance to notice new triggers without producing empty hourly churn.
+- Pause the heartbeat: score 7. Also valid, but slightly too aggressive while the user still wants long-horizon persistence.
+- Keep hourly and log another no-ready-work result: score 2. This would prove the branch twice but would add little new learning.
+
+### Decision
+
+Slow the active heartbeat automation to daily at `FREQ=DAILY;INTERVAL=1`.
+
+Use daily as the quiet default. Return to hourly or faster only when Miles asks for another burst or `state/next_actions.md` names a concrete experiment ladder that benefits from tighter cadence.

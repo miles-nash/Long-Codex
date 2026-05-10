@@ -390,3 +390,20 @@ Score: 12/12
 - Restraint: 2 - kept the cycle to verification plus a negative-result handoff.
 
 Result: excellent hour. The next best step is to treat a second consecutive no-trigger wake as a cadence signal and consider pausing or slowing the heartbeat.
+
+## 2026-05-10 09:25 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - updated `docs/cadence_review.md` and the live heartbeat schedule to daily.
+- Verification: 2 - verified the live automation config shows `FREQ=DAILY;INTERVAL=1`, ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - treated a second consecutive no-trigger wake as a cadence signal rather than repeating no-ready-work logs.
+- Steering: 2 - followed the top next action and chose daily cadence over another empty hourly loop.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, cadence review, and run log.
+- Restraint: 2 - slowed rather than paused; preserved continuity without hourly churn.
+
+Result: excellent hour. The next best step is to check for a concrete trigger on the next daily wake; if none exists, consider pausing the heartbeat.
