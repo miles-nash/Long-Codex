@@ -288,3 +288,20 @@ Score: 12/12
 - Restraint: 2 - kept the live automation unchanged and deferred weekly synthesis automation.
 
 Result: excellent hour. The next best step is a bounded synthesis over recent heartbeat logs that produces a next-experiment ladder or recommends returning to hourly.
+
+## 2026-05-10 03:11 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `synthesis`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/next_experiment_ladder.md` with a concrete experiment ladder.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and a ladder content check.
+- Learning: 2 - identified queue-exhaustion behavior as the next frontier for useful persistence.
+- Steering: 2 - followed the top next action and avoided returning to hourly while a high-value bounded eval exists.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - did not add weekly synthesis automation or refactor evals before the next eval exists.
+
+Result: excellent hour. The next best step is adding the queue-exhaustion behavior eval.

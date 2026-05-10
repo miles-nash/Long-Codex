@@ -39,6 +39,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - subagent artifact-handoff rule encoded in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`
 - cadence follow-up review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30`
 - cadence watchpoint review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` only because the next run has a concrete synthesis target
+- next-experiment ladder added in `docs/next_experiment_ladder.md`; the next frontier is a queue-exhaustion behavior eval
 
 ## Decisions
 
@@ -66,6 +67,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Use subagents only for independent branches where artifact-path handoffs reduce context pressure.
 - Keep the 30-minute heartbeat while runs remain distinct and 10+/12; next test is a bounded synthesis pass that either names a concrete next experiment or recommends returning to hourly.
 - Treat source-ledger freshness as a date contract: `docs/source_ledger.md` must be at least as new as the latest dated research note, but not every note needs a ledger row unless it materially changes the system.
+- Keep the 30-minute heartbeat through one queue-exhaustion behavior eval because a concrete high-value next experiment now exists.
 
 ## Known Gaps
 
@@ -75,7 +77,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 - Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
-- The next-action queue is now conditional-heavy; the next synthesis run should create a concrete experiment ladder or trigger a cadence rollback to hourly.
+- The next-action queue is conditional-heavy; the next eval should test whether a heartbeat avoids inventing busywork when no ready bounded follow-up exists.
 
 ## Recovery Instructions
 

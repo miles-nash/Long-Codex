@@ -14,8 +14,8 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Next-experiment synthesis | Recent runs closed most active follow-ups; a synthesis pass should decide the next concrete frontier before the faster cadence becomes churn. | `docs/cadence_review.md`, `docs/heartbeat_synthesis.md`, `state/useful_hour_scores.md`, `logs/2026-05-10T0810Z-source-ledger-freshness.md` | Synthesize recent logs and decisions into a next-experiment ladder; if no high-value bounded step emerges, return the heartbeat to hourly. |
-| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops or the queue stays conditional-only. | `docs/cadence_review.md`, `state/useful_hour_scores.md`, `logs/2026-05-10T0810Z-source-ledger-freshness.md` | Revisit immediately after the synthesis run or sooner if a watchpoint triggers. |
+| Queue-exhaustion behavior eval | The faster cadence needs proof that a heartbeat will slow down or stop instead of inventing busywork when no ready bounded follow-up exists. | `docs/next_experiment_ladder.md`, `docs/cadence_review.md`, `state/useful_hour_scores.md` | Add a nested behavior eval that seeds an empty/conditional queue and checks for a rollback or no-work recommendation. |
+| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops or the queue stays conditional-only after the next eval. | `docs/cadence_review.md`, `docs/next_experiment_ladder.md`, `state/useful_hour_scores.md` | Revisit immediately after the queue-exhaustion eval or sooner if a watchpoint triggers. |
 
 ## Parked Ideas
 
@@ -29,6 +29,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Parallel subagent cycles: wait until a cycle has genuinely independent branches and can use artifact handoffs.
 - Subagent handoff drift check: add only if the operating loop and repo skill diverge later.
 - Source-ledger row coverage: add only if date freshness is not enough to catch material research notes missing from the ledger.
+- Eval harness refactor: wait until the queue-exhaustion eval proves duplication is painful.
 
 ## Retired Ideas
 
@@ -44,3 +45,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Subagent artifact handoff rule: resolved in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`.
 - Post-review cadence check: resolved in `docs/cadence_review.md`; keep 30-minute heartbeat active while watchpoints stay clear.
 - Source-ledger freshness: resolved in `scripts/check_long_codex_repo.sh`; source ledger date must now be at least as new as the latest dated research note.
+- Next-experiment synthesis: resolved in `docs/next_experiment_ladder.md`; a queue-exhaustion behavior eval is the next concrete frontier.
