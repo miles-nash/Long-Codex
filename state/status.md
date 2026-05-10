@@ -43,6 +43,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - queue-exhaustion behavior eval added in `scripts/eval_queue_exhaustion.py` and passed; it verifies that a no-ready-work branch records rollback/no-work guidance instead of inventing busywork
 - active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1` after the queue-exhaustion eval passed and the fast-cadence experiment ladder completed
 - eval harness maintenance assessment added in `docs/eval_harness_maintenance.md`; helper extraction is deferred until a concrete trigger occurs
+- canonical and live heartbeat prompts now include a no-ready-work negative-result branch so hourly runs can stop cleanly instead of inventing work
 
 ## Decisions
 
@@ -74,6 +75,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Use the queue-exhaustion eval result as the next cadence input before adding more evals or automation.
 - Use hourly cadence as the default again; fast cadence should return only when a concrete experiment ladder justifies the extra wakeups.
 - Keep the three nested Codex eval scripts duplicated for now; extract `scripts/codex_eval_utils.py` only when adding a fourth eval or changing shared runtime behavior.
+- If all candidate actions are conditional, blocked, or lower-value than waiting, record a verified no-ready-work negative result rather than manufacturing a new artifact.
 
 ## Known Gaps
 
@@ -84,6 +86,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 - Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
 - The eval harness helper boundary is documented, but the helper itself is intentionally deferred until a trigger occurs.
+- The no-ready-work branch is encoded in the prompt but has not yet been observed in a live hourly run after this prompt update.
 
 ## Recovery Instructions
 

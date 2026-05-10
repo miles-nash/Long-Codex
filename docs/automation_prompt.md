@@ -9,6 +9,8 @@ Use the $long-codex-cycle skill if it is available. First read AGENTS.md, docs/s
 
 Choose exactly one bounded cycle: harvest, structure, eval, automation, synthesis, or publish. Score candidate actions using docs/automation_steering.md, then pick the highest-value action that can finish in one run. Produce one durable artifact or one clearly logged negative result. Prefer the next action with the highest learning per minute. Use official OpenAI docs for OpenAI/Codex facts and use current web research when claims may have changed.
 
+If all candidate actions are conditional, blocked, or lower-value than waiting, choose a no-ready-work negative-result cycle: run verification, update state minimally, write a run note explaining why no artifact beyond the log was appropriate, and stop. Do not invent a research, eval, or automation artifact just to stay busy.
+
 Before finishing, run ./scripts/check_long_codex_repo.sh, update state/status.md, update state/next_actions.md, add or update a logs/YYYY-MM-DD-*.md run note, and report mode chosen, changed files, verification result, useful-hour score, and the next smallest useful step. Ask Miles only for concrete blockers.
 ```
 

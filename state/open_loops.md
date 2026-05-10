@@ -14,7 +14,8 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review after two hourly runs or if a watchpoint triggers. |
+| No-ready-work branch observation | The canonical and live heartbeat prompts now have an explicit no-ready-work branch; the next useful signal is whether a live hourly run follows it cleanly. | `docs/automation_prompt.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml`, `evals/last_queue_exhaustion_summary.json` | If no concrete trigger appears on the next hourly wake, record a verified no-ready-work negative result and stop. |
+| Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review only if hourly runs show drift, repetition, or a new concrete experiment ladder. |
 
 ## Parked Ideas
 

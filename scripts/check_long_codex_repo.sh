@@ -88,6 +88,11 @@ if ! grep -q "EVAL_SMOKE_MARKER" evals/long_codex_cycle_smoke.md; then
   missing=1
 fi
 
+if ! grep -q "no-ready-work negative-result cycle" docs/automation_prompt.md; then
+  echo "canonical automation prompt is missing no-ready-work branch" >&2
+  missing=1
+fi
+
 if ! grep -q "DEAD_END_AVOIDED_MARKER" evals/dead_end_avoidance_prompt.md; then
   echo "dead-end avoidance eval prompt is missing status marker" >&2
   missing=1

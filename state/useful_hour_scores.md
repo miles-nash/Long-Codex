@@ -356,3 +356,20 @@ Score: 12/12
 - Restraint: 2 - documented the helper boundary without touching the passing eval scripts.
 
 Result: excellent hour. The next best step is to let hourly cadence run once more, then review cadence only if drift, repetition, or a concrete experiment ladder appears.
+
+## 2026-05-10 07:16 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - updated `docs/automation_prompt.md` and the live heartbeat prompt with a no-ready-work branch.
+- Verification: 2 - verified the live automation config, ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - converted the queue-exhaustion eval's expected behavior into the production heartbeat prompt.
+- Steering: 2 - chose a prompt guardrail instead of inventing a new research or eval artifact from a conditional queue.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept hourly cadence unchanged and changed only the stop-branch wording.
+
+Result: excellent hour. The next best step is observing whether the next hourly wake uses the no-ready-work branch cleanly when no concrete trigger appears.

@@ -4,12 +4,13 @@ Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. Let the hourly cadence run once more, then review `docs/cadence_review.md` only if the two hourly runs show drift, repetition, or a new concrete experiment ladder.
-2. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
-3. Add a weekly synthesis automation only if hourly logs begin repeating or growing too long.
-4. Add a broader useful-hour score behavior eval only if queue-exhaustion coverage is not enough.
-5. Extract `scripts/codex_eval_utils.py` only if a fourth nested eval is added or shared eval runtime behavior changes.
-6. If repeated runs score below 7, update the automation before doing more research.
+1. On the next hourly wake, check for a concrete trigger: drift, repetition, a new experiment ladder, user instruction, or a repo-check failure. If none exists, use the no-ready-work negative-result branch and do not invent a new artifact.
+2. Review `docs/cadence_review.md` only if hourly runs show drift, repetition, or a new concrete experiment ladder.
+3. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
+4. Add a weekly synthesis automation only if hourly logs begin repeating or growing too long.
+5. Add a broader useful-hour score behavior eval only if queue-exhaustion coverage is not enough.
+6. Extract `scripts/codex_eval_utils.py` only if a fourth nested eval is added or shared eval runtime behavior changes.
+7. If repeated runs score below 7, update the automation before doing more research.
 
 ## Parking Lot
 
