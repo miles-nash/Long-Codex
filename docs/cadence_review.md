@@ -84,3 +84,24 @@ Review cadence again if a watchpoint triggers or after two more heartbeat runs. 
 Keep the active heartbeat automation unchanged at `FREQ=MINUTELY;INTERVAL=30`.
 
 The next run should perform one bounded synthesis over recent logs and decisions, then either name a concrete next experiment or recommend returning the heartbeat to hourly. If that synthesis cannot identify a high-value bounded step, the "no active follow-up" watchpoint should be treated as triggered.
+
+## Follow-Up Review: 2026-05-10 05:14 America/Denver
+
+### Evidence
+
+- Live automation config was updated from `FREQ=MINUTELY;INTERVAL=30` to `FREQ=HOURLY;INTERVAL=1`.
+- Queue-exhaustion eval passed in `evals/last_queue_exhaustion_summary.json`.
+- The eval verified the no-ready-work branch: no busywork log, rollback recommendation present, and `turn.completed` without errors.
+- Recent fast-cadence runs were useful, but the active queue is now mostly conditional maintenance rather than urgent high-learning work.
+
+### Candidate Scores
+
+- Return the heartbeat to hourly: score 9. The queue-exhaustion eval gives confidence that the system can recognize low-value continuation, and hourly cadence reduces churn now that the urgent experiment ladder is complete.
+- Keep the 30-minute heartbeat active: score 6. The fast cadence has been productive, but no longer has a concrete high-value next rung that needs immediate pressure.
+- Add weekly synthesis automation now: score 3. Still premature because logs are readable and hourly cadence reduces synthesis pressure.
+
+### Decision
+
+Return the active heartbeat automation to hourly at `FREQ=HOURLY;INTERVAL=1`.
+
+This is not a rollback due to failure. It is the intended watchpoint behavior: fast cadence was useful while closing a concrete ladder of eval and cadence questions; hourly is now the better default until Miles asks for another burst or the queue names a new high-value experiment.

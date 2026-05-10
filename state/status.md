@@ -41,6 +41,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - cadence watchpoint review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` only because the next run has a concrete synthesis target
 - next-experiment ladder added in `docs/next_experiment_ladder.md`; the next frontier is a queue-exhaustion behavior eval
 - queue-exhaustion behavior eval added in `scripts/eval_queue_exhaustion.py` and passed; it verifies that a no-ready-work branch records rollback/no-work guidance instead of inventing busywork
+- active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1` after the queue-exhaustion eval passed and the fast-cadence experiment ladder completed
 
 ## Decisions
 
@@ -70,6 +71,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Treat source-ledger freshness as a date contract: `docs/source_ledger.md` must be at least as new as the latest dated research note, but not every note needs a ledger row unless it materially changes the system.
 - Keep the 30-minute heartbeat through one queue-exhaustion behavior eval because a concrete high-value next experiment now exists.
 - Use the queue-exhaustion eval result as the next cadence input before adding more evals or automation.
+- Use hourly cadence as the default again; fast cadence should return only when a concrete experiment ladder justifies the extra wakeups.
 
 ## Known Gaps
 
@@ -79,7 +81,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 - Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
-- The cadence review has not yet incorporated the passing queue-exhaustion eval result.
+- The eval harness now has three similar nested Codex scripts; assess whether a shared helper is worth it before adding a fourth.
 
 ## Recovery Instructions
 

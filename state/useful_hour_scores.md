@@ -322,3 +322,20 @@ Score: 12/12
 - Restraint: 2 - did not refactor the eval harness or change automation cadence in the same eval cycle.
 
 Result: excellent hour. The next best step is reviewing cadence with the passing queue-exhaustion eval result.
+
+## 2026-05-10 05:14 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - updated `docs/cadence_review.md` with the queue-exhaustion cadence decision.
+- Verification: 2 - verified the live automation config shows `FREQ=HOURLY;INTERVAL=1` and ran `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - used the passing queue-exhaustion eval to identify that the fast-cadence ladder had completed and hourly cadence is the better default again.
+- Steering: 2 - followed the top next action and avoided adding more evals before resolving the schedule.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - changed only cadence and cadence docs; did not add weekly synthesis or another automation.
+
+Result: excellent hour. The next best step is an eval-harness maintenance assessment.

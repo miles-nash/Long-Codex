@@ -14,7 +14,8 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Cadence review after queue-exhaustion eval | The queue-exhaustion eval passed, so the schedule decision now has stronger evidence instead of only rubric scores. | `docs/cadence_review.md`, `docs/next_experiment_ladder.md`, `evals/last_queue_exhaustion_summary.json`, `state/useful_hour_scores.md` | Decide whether to keep the 30-minute heartbeat or return to hourly using the passing eval result. |
+| Eval harness maintenance | The repo now has three nested Codex eval scripts with similar setup, parsing, summary, and checks. | `scripts/eval_long_codex_cycle.py`, `scripts/eval_dead_end_avoidance.py`, `scripts/eval_queue_exhaustion.py` | Compare the duplication and either extract a small shared helper or record why duplication is still acceptable. |
+| Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review after two hourly runs or if a watchpoint triggers. |
 
 ## Parked Ideas
 
@@ -46,3 +47,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Source-ledger freshness: resolved in `scripts/check_long_codex_repo.sh`; source ledger date must now be at least as new as the latest dated research note.
 - Next-experiment synthesis: resolved in `docs/next_experiment_ladder.md`; a queue-exhaustion behavior eval is the next concrete frontier.
 - Queue-exhaustion behavior eval: resolved in `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`.
+- Cadence review after queue-exhaustion eval: resolved in `docs/cadence_review.md`; active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1`.
