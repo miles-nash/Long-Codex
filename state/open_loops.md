@@ -14,7 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| No-ready-work branch observation | The canonical and live heartbeat prompts now have an explicit no-ready-work branch; the next useful signal is whether a live hourly run follows it cleanly. | `docs/automation_prompt.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml`, `evals/last_queue_exhaustion_summary.json` | If no concrete trigger appears on the next hourly wake, record a verified no-ready-work negative result and stop. |
+| Repeated no-ready-work watch | The first live no-ready-work branch succeeded; a second consecutive no-trigger wake would suggest the heartbeat may be too frequent for the current queue. | `logs/2026-05-10T1425Z-no-ready-work-observation.md`, `docs/automation_prompt.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | If no concrete trigger appears on the next hourly wake, review whether to pause or slow the heartbeat instead of logging another no-ready-work run. |
 | Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review only if hourly runs show drift, repetition, or a new concrete experiment ladder. |
 
 ## Parked Ideas
@@ -49,3 +49,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Queue-exhaustion behavior eval: resolved in `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`.
 - Cadence review after queue-exhaustion eval: resolved in `docs/cadence_review.md`; active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1`.
 - Eval harness maintenance assessment: resolved in `docs/eval_harness_maintenance.md`; duplication is acceptable until a concrete helper trigger occurs.
+- No-ready-work branch observation: resolved in `logs/2026-05-10T1425Z-no-ready-work-observation.md`; the first live hourly run followed the branch cleanly.

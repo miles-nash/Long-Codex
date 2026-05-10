@@ -373,3 +373,20 @@ Score: 12/12
 - Restraint: 2 - kept hourly cadence unchanged and changed only the stop-branch wording.
 
 Result: excellent hour. The next best step is observing whether the next hourly wake uses the no-ready-work branch cleanly when no concrete trigger appears.
+
+## 2026-05-10 08:25 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - logged the first live no-ready-work negative result and updated minimal state.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - confirmed the live hourly loop can stop cleanly when no concrete trigger appears.
+- Steering: 2 - followed the prompt branch and did not invent a research, eval, or automation artifact.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the cycle to verification plus a negative-result handoff.
+
+Result: excellent hour. The next best step is to treat a second consecutive no-trigger wake as a cadence signal and consider pausing or slowing the heartbeat.

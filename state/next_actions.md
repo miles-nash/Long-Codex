@@ -4,7 +4,7 @@ Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. On the next hourly wake, check for a concrete trigger: drift, repetition, a new experiment ladder, user instruction, or a repo-check failure. If none exists, use the no-ready-work negative-result branch and do not invent a new artifact.
+1. On the next hourly wake, check for a concrete trigger: drift, repetition, a new experiment ladder, user instruction, or a repo-check failure. If none exists again, review whether to pause or slow the heartbeat instead of logging another no-ready-work run.
 2. Review `docs/cadence_review.md` only if hourly runs show drift, repetition, or a new concrete experiment ladder.
 3. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
 4. Add a weekly synthesis automation only if hourly logs begin repeating or growing too long.
