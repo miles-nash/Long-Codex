@@ -8,13 +8,13 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 ## Active Blockers
 
-- None currently. The repo check passes, the eval summaries are passing, and the active heartbeat automation is still useful.
+- None currently. The repo check passes, the eval summaries are passing, and the heartbeat is paused because no ready scheduled work exists.
 
 ## Active Follow-Ups
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Daily no-ready-work watch | The heartbeat is now daily after repeated no-trigger hourly wakes; another no-trigger daily wake may mean the automation should pause. | `docs/cadence_review.md`, `logs/2026-05-10T1425Z-no-ready-work-observation.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | If no concrete trigger appears on the next daily wake, consider pausing the heartbeat instead of logging repeated no-ready-work runs. |
+| Heartbeat restart gate | The heartbeat is paused because repeated no-trigger wakes would create churn; restarting should require a concrete experiment ladder or direct user request. | `docs/cadence_review.md`, `logs/2026-05-10T1525Z-daily-cadence-slowdown.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Restart only when a bounded next experiment benefits from scheduled continuation. |
 
 ## Parked Ideas
 
@@ -50,3 +50,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Eval harness maintenance assessment: resolved in `docs/eval_harness_maintenance.md`; duplication is acceptable until a concrete helper trigger occurs.
 - No-ready-work branch observation: resolved in `logs/2026-05-10T1425Z-no-ready-work-observation.md`; the first live hourly run followed the branch cleanly.
 - Repeated no-ready-work watch: resolved in `docs/cadence_review.md`; active heartbeat slowed to daily at `FREQ=DAILY;INTERVAL=1`.
+- Daily no-ready-work watch: resolved in `docs/cadence_review.md`; heartbeat paused at `status = "PAUSED"` after another no-trigger wake.

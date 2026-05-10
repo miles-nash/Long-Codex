@@ -4,8 +4,8 @@ Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. On the next daily wake, check for a concrete trigger: drift, repetition, a new experiment ladder, user instruction, or a repo-check failure. If none exists, consider pausing the heartbeat instead of logging repeated no-ready-work runs.
-2. Review `docs/cadence_review.md` only if daily runs show drift, repetition, or a new concrete experiment ladder.
+1. Keep the heartbeat paused until Miles asks for another burst or a manual session names a concrete experiment ladder that benefits from scheduled continuation.
+2. If restarting the heartbeat, keep the saved daily schedule first; return to hourly or 30-minute cadence only when the experiment ladder justifies tighter feedback.
 3. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
 4. Add a weekly synthesis automation only if future heartbeat logs begin repeating or growing too long.
 5. Add a broader useful-hour score behavior eval only if queue-exhaustion coverage is not enough.
@@ -20,7 +20,8 @@ Last updated: 2026-05-10
 - Keep `state/open_loops.md` as the place for active blockers, parked ideas, and retired ideas.
 - Revisit `docs/eval_summary_policy.md` only if summary artifacts become noisy or expensive.
 - Revisit `scripts/check_useful_hour_scores.py` if future score entries need an explicit blocked-run exception.
-- Return the heartbeat to hourly if `docs/cadence_review.md` watchpoints trigger.
+- Return the heartbeat to active status only when a concrete trigger exists.
+- Return the heartbeat to hourly if `docs/cadence_review.md` watchpoints trigger after restart.
 - Return to hourly or 30-minute cadence only when a concrete experiment ladder justifies it.
 - Use subagents only for independent branches where durable artifact handoffs will reduce context pressure.
 - Add source-ledger row coverage checks only if date freshness proves too weak for material research notes.

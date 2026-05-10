@@ -126,3 +126,24 @@ This is not a rollback due to failure. It is the intended watchpoint behavior: f
 Slow the active heartbeat automation to daily at `FREQ=DAILY;INTERVAL=1`.
 
 Use daily as the quiet default. Return to hourly or faster only when Miles asks for another burst or `state/next_actions.md` names a concrete experiment ladder that benefits from tighter cadence.
+
+## Follow-Up Review: 2026-05-10 15:44 America/Denver
+
+### Evidence
+
+- Live automation config was updated from `status = "ACTIVE"` to `status = "PAUSED"` while keeping `FREQ=DAILY;INTERVAL=1` for easy restart.
+- The wake found no concrete trigger: repo check passed, no new user direction arrived, no new experiment ladder exists, and the priority queue is intentionally conditional.
+- The prior run already slowed the heartbeat to daily after repeated no-trigger hourly wakes.
+- Another heartbeat run now would mainly create a new "still nothing" artifact, which the no-ready-work branch and queue-exhaustion eval were designed to avoid.
+
+### Candidate Scores
+
+- Pause the heartbeat: score 10. This best honors the "do not invent work" guardrail while preserving the saved automation for an intentional restart.
+- Delete the heartbeat: score 6. This would prevent all churn, but loses a useful, configured continuation handle.
+- Keep daily and log another no-ready-work result: score 3. It preserves a tiny watch, but adds recurring noise without a concrete trigger.
+
+### Decision
+
+Pause the active heartbeat automation with `status = "PAUSED"` and keep `rrule = "FREQ=DAILY;INTERVAL=1"`.
+
+Restart only when Miles asks for another burst or `state/next_actions.md` names a concrete experiment ladder that benefits from scheduled continuation.

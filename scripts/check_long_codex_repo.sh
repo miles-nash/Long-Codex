@@ -164,8 +164,8 @@ if ! grep -q "Keep the active heartbeat automation as-is" docs/heartbeat_synthes
   missing=1
 fi
 
-if ! grep -q "FREQ=DAILY;INTERVAL=1" docs/cadence_review.md; then
-  echo "cadence review is missing active daily schedule decision" >&2
+if ! grep -q 'status = "PAUSED"' docs/cadence_review.md; then
+  echo "cadence review is missing paused heartbeat decision" >&2
   missing=1
 fi
 

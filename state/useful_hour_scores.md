@@ -407,3 +407,20 @@ Score: 12/12
 - Restraint: 2 - slowed rather than paused; preserved continuity without hourly churn.
 
 Result: excellent hour. The next best step is to check for a concrete trigger on the next daily wake; if none exists, consider pausing the heartbeat.
+
+## 2026-05-10 15:44 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - paused the live heartbeat automation and recorded the cadence decision in `docs/cadence_review.md`.
+- Verification: 2 - verified the live automation config shows `status = "PAUSED"`, ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - confirmed that after slowing to daily, another no-trigger wake should stop scheduled churn rather than manufacture work.
+- Steering: 2 - followed the top next action and chose a pause over repeated no-ready-work logging.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, cadence review, and run log.
+- Restraint: 2 - preserved the configured automation for restart but stopped it from waking without a concrete trigger.
+
+Result: excellent hour. The next best step is to keep the heartbeat paused until Miles asks for another burst or a manual session names a concrete experiment ladder.

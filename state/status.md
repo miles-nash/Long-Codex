@@ -46,6 +46,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - canonical and live heartbeat prompts now include a no-ready-work negative-result branch so hourly runs can stop cleanly instead of inventing work
 - first live no-ready-work negative-result run observed; no concrete trigger appeared and the run stopped after verification plus a log
 - active heartbeat slowed to daily at `FREQ=DAILY;INTERVAL=1` after a second consecutive no-trigger wake
+- heartbeat automation paused at `status = "PAUSED"` after the next wake again found no concrete trigger
 
 ## Decisions
 
@@ -80,6 +81,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - If all candidate actions are conditional, blocked, or lower-value than waiting, record a verified no-ready-work negative result rather than manufacturing a new artifact.
 - Treat repeated no-ready-work runs as a cadence signal; after the second no-trigger hourly wake, the heartbeat slowed to daily, and a repeated no-trigger daily wake should trigger a pause review.
 - Use daily cadence as the quiet default when the queue has no concrete trigger; return to hourly or faster only for a new experiment ladder or explicit user direction.
+- Pause scheduled continuation when the queue is conditional-only and verification passes; restart only for explicit user direction or a concrete experiment ladder.
 
 ## Known Gaps
 
@@ -90,7 +92,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 - Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
 - The eval harness helper boundary is documented, but the helper itself is intentionally deferred until a trigger occurs.
-- The heartbeat is now daily; if a daily no-ready-work run repeats with no trigger, consider pausing the automation.
+- The heartbeat is paused; future progress now depends on Miles restarting it or a manual session naming a concrete experiment ladder.
 
 ## Recovery Instructions
 
