@@ -339,3 +339,20 @@ Score: 12/12
 - Restraint: 2 - changed only cadence and cadence docs; did not add weekly synthesis or another automation.
 
 Result: excellent hour. The next best step is an eval-harness maintenance assessment.
+
+## 2026-05-10 06:15 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `structure`
+
+Score: 12/12
+
+- Artifact: 2 - added `docs/eval_harness_maintenance.md`.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - quantified the three nested eval scripts and set explicit triggers for helper extraction.
+- Steering: 2 - followed the top next action and avoided a risky refactor without a concrete trigger.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - documented the helper boundary without touching the passing eval scripts.
+
+Result: excellent hour. The next best step is to let hourly cadence run once more, then review cadence only if drift, repetition, or a concrete experiment ladder appears.

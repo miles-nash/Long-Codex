@@ -17,6 +17,7 @@ required_files=(
   "docs/next_experiment_ladder.md"
   "docs/source_ledger.md"
   "docs/eval_summary_policy.md"
+  "docs/eval_harness_maintenance.md"
   "evals/long_codex_cycle_smoke.md"
   "evals/last_long_codex_cycle_smoke_summary.json"
   "evals/dead_end_avoidance_prompt.md"
@@ -185,6 +186,11 @@ fi
 
 if ! grep -q 'summary_version' docs/eval_summary_policy.md; then
   echo "eval summary policy is missing summary_version guidance" >&2
+  missing=1
+fi
+
+if ! grep -q 'scripts/codex_eval_utils.py' docs/eval_harness_maintenance.md; then
+  echo "eval harness maintenance note is missing helper-boundary decision" >&2
   missing=1
 fi
 

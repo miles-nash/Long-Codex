@@ -14,7 +14,6 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Eval harness maintenance | The repo now has three nested Codex eval scripts with similar setup, parsing, summary, and checks. | `scripts/eval_long_codex_cycle.py`, `scripts/eval_dead_end_avoidance.py`, `scripts/eval_queue_exhaustion.py` | Compare the duplication and either extract a small shared helper or record why duplication is still acceptable. |
 | Hourly cadence watch | The fast-cadence ladder is complete and the heartbeat is hourly again; revisit only if hourly runs stall or Miles asks for another burst. | `docs/cadence_review.md`, `/Users/milesnash/.codex/automations/long-codex-hourly-continuation/automation.toml` | Review after two hourly runs or if a watchpoint triggers. |
 
 ## Parked Ideas
@@ -29,7 +28,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Parallel subagent cycles: wait until a cycle has genuinely independent branches and can use artifact handoffs.
 - Subagent handoff drift check: add only if the operating loop and repo skill diverge later.
 - Source-ledger row coverage: add only if date freshness is not enough to catch material research notes missing from the ledger.
-- Eval harness refactor: wait until the queue-exhaustion eval proves duplication is painful.
+- Eval harness refactor: extract `scripts/codex_eval_utils.py` only if a fourth eval is added, shared runtime behavior changes, or one bug must be fixed in multiple eval scripts.
 
 ## Retired Ideas
 
@@ -48,3 +47,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Next-experiment synthesis: resolved in `docs/next_experiment_ladder.md`; a queue-exhaustion behavior eval is the next concrete frontier.
 - Queue-exhaustion behavior eval: resolved in `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`.
 - Cadence review after queue-exhaustion eval: resolved in `docs/cadence_review.md`; active heartbeat returned to hourly at `FREQ=HOURLY;INTERVAL=1`.
+- Eval harness maintenance assessment: resolved in `docs/eval_harness_maintenance.md`; duplication is acceptable until a concrete helper trigger occurs.
