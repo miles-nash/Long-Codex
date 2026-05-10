@@ -204,8 +204,14 @@ if logs:
             elif state_date < latest_log_date:
                 note(f"{state_path} is stale: {state_date} is older than latest log {latest_log_date}")
 
+latest_research_date: date | None = None
 for research_path in sorted(Path("docs/research").glob("*.md")):
     text = research_path.read_text()
+    research_date = first_date(research_path)
+    if research_date is None:
+        note(f"{research_path} is missing Date: YYYY-MM-DD")
+    elif latest_research_date is None or research_date > latest_research_date:
+        latest_research_date = research_date
     if "## Sources" not in text:
         note(f"{research_path} is missing a ## Sources section")
     if not url_re.search(text):
@@ -213,6 +219,13 @@ for research_path in sorted(Path("docs/research").glob("*.md")):
 
 ledger = Path("docs/source_ledger.md")
 ledger_text = ledger.read_text()
+ledger_date = first_date(ledger)
+if ledger_date is None:
+    note("source ledger is missing Last updated: YYYY-MM-DD")
+elif latest_research_date is not None and ledger_date < latest_research_date:
+    note(
+        f"source ledger is stale: {ledger_date} is older than latest research note {latest_research_date}"
+    )
 rows = [
     line
     for line in ledger_text.splitlines()

@@ -254,3 +254,20 @@ Score: 12/12
 - Restraint: 2 - kept the automation unchanged and deferred weekly synthesis automation.
 
 Result: excellent hour. The next best step is a lightweight source-ledger freshness check.
+
+## 2026-05-10 02:10 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - added a source-ledger freshness check to `scripts/check_long_codex_repo.sh`.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh` and `python3 scripts/check_useful_hour_scores.py`.
+- Learning: 2 - converted the implicit source-ledger freshness rule into an executable date check.
+- Steering: 2 - followed the top next action and kept the check limited to the lowest-cost failure mode.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - did not require every research note to have a ledger row unless future drift proves that stronger rule is needed.
+
+Result: excellent hour. The next best step is cadence watchpoint review after one more heartbeat run, unless a watchpoint triggers first.

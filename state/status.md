@@ -27,6 +27,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - source ledger added in `docs/source_ledger.md` to map claims to evidence paths and implications
 - active heartbeat cadence temporarily increased from 60 minutes to 30 minutes after Miles said to work more than hourly for now
 - `scripts/check_long_codex_repo.sh` now detects stale state dates, research notes without sources, and missing source-ledger evidence paths
+- `scripts/check_long_codex_repo.sh` now detects when `docs/source_ledger.md` is older than the latest dated `docs/research/*.md` note
 - `scripts/eval_long_codex_cycle.py` now emits `evals/last_long_codex_cycle_smoke_summary.json` with duration, event counts, checks, and usage
 - dead-end avoidance eval added and passed in `scripts/eval_dead_end_avoidance.py`
 - stale-open-loop state added in `state/open_loops.md`, with active blockers, active follow-ups, parked ideas, and retired ideas
@@ -62,7 +63,8 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep the temporary faster heartbeat cadence while runs remain distinct and high-scoring; return to hourly if cadence watchpoints trigger.
 - Subagent work should hand back durable artifact paths plus short findings, not chat-only summaries.
 - Use subagents only for independent branches where artifact-path handoffs reduce context pressure.
-- Keep the 30-minute heartbeat while runs remain distinct and 10+/12; review again after two more heartbeat runs or any watchpoint.
+- Keep the 30-minute heartbeat while runs remain distinct and 10+/12; review again after one more heartbeat run or any watchpoint.
+- Treat source-ledger freshness as a date contract: `docs/source_ledger.md` must be at least as new as the latest dated research note, but not every note needs a ledger row unless it materially changes the system.
 
 ## Known Gaps
 
@@ -71,7 +73,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Weekly synthesis automation is not yet justified by log volume or repetition.
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
-- `docs/source_ledger.md` has source/evidence validation, but no freshness check against new research-note dates.
+- Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
 
 ## Recovery Instructions
 
