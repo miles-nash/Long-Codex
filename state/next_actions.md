@@ -1,11 +1,11 @@
 # Next Actions
 
-Last updated: 2026-05-08
+Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. Add a short subagent artifact-handoff rule to `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`.
-2. Review `docs/cadence_review.md` only if a cadence watchpoint triggers or after two more heartbeat runs.
+1. Review `docs/cadence_review.md` after the two post-review heartbeat runs: `logs/2026-05-08T2248Z-current-practices-harvest.md` and `logs/2026-05-10T0638Z-subagent-handoff-rule.md`.
+2. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
 3. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
 4. Add a useful-hour score behavior eval only if checked ledger entries show manual scoring is not enough.
 5. Refactor shared code between `scripts/eval_long_codex_cycle.py` and `scripts/eval_dead_end_avoidance.py` only if a third eval is added.

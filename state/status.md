@@ -1,6 +1,6 @@
 # Status
 
-Last updated: 2026-05-08
+Last updated: 2026-05-10
 
 ## Current State
 
@@ -35,6 +35,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - useful-hour score ledger consistency check added in `scripts/check_useful_hour_scores.py`
 - cadence review added in `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` with watchpoints
 - current-practices harvest added in `docs/research/2026-05-08-agent-artifact-handoffs.md` and `docs/source_ledger.md`
+- subagent artifact-handoff rule encoded in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`
 
 ## Decisions
 
@@ -59,6 +60,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Check the useful-hour score ledger's rubric shape before adding heavier model-graded useful-hour evaluation.
 - Keep the temporary faster heartbeat cadence while runs remain distinct and high-scoring; return to hourly if cadence watchpoints trigger.
 - Subagent work should hand back durable artifact paths plus short findings, not chat-only summaries.
+- Use subagents only for independent branches where artifact-path handoffs reduce context pressure.
 
 ## Known Gaps
 
@@ -66,7 +68,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - The useful-hour score ledger is now shape-checked, but the scores are still human/rubric judgments rather than model-graded quality measurements.
 - Weekly synthesis automation is not yet justified by log volume or repetition.
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
-- The subagent artifact-handoff practice is harvested, but not yet encoded in the operating loop or repo skill.
+- The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 
 ## Recovery Instructions
 

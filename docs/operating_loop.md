@@ -43,6 +43,18 @@ Keep the cycle narrow. A good cycle has:
 
 Use web or official docs when the question is current, source-sensitive, or about OpenAI/Codex behavior.
 
+### Subagent Handoffs
+
+Default to one agent for one bounded cycle. Use subagents only for genuinely independent branches where separate context windows add value.
+
+If a run spawns subagents, assign clear ownership and require each subagent to return:
+
+- artifact path
+- one-sentence finding
+- verification performed or blocker
+
+The parent run should link those artifact paths from the run log, `docs/source_ledger.md`, or `state/open_loops.md` instead of relying on chat-only summaries.
+
 ## 4. Verify
 
 Use the cheapest concrete check that fits the artifact:

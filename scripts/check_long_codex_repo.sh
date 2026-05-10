@@ -58,6 +58,16 @@ if ! grep -q "long-codex-cycle" .agents/skills/long-codex-cycle/SKILL.md; then
   missing=1
 fi
 
+if ! grep -q "Subagent Handoffs" docs/operating_loop.md; then
+  echo "operating loop is missing subagent handoff rule" >&2
+  missing=1
+fi
+
+if ! grep -q "artifact path" .agents/skills/long-codex-cycle/SKILL.md; then
+  echo "long-codex-cycle skill is missing subagent artifact handoff rule" >&2
+  missing=1
+fi
+
 if ! grep -q "long-codex-hourly-continuation" state/useful_hour_scores.md; then
   echo "useful hour score ledger is missing heartbeat entry" >&2
   missing=1

@@ -220,3 +220,20 @@ Score: 12/12
 - Restraint: 2 - did not add subagents or new automation before encoding the practice.
 
 Result: excellent hour. The next best step is adding a short subagent artifact-handoff rule to the operating loop and repo skill.
+
+## 2026-05-10 00:38 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `structure`
+
+Score: 12/12
+
+- Artifact: 2 - encoded the subagent artifact-handoff rule in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`.
+- Verification: 2 - ran `./scripts/check_long_codex_repo.sh`, including the new rule checks.
+- Learning: 2 - converted the harvested source-backed practice into a lightweight operating rule.
+- Steering: 2 - followed the top next action and avoided adding premature subagent machinery.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the rule conditional and did not spawn subagents without an independent-branch need.
+
+Result: excellent hour. The next best step is cadence watchpoint review now that two post-review heartbeat runs exist.

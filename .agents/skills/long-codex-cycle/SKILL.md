@@ -51,6 +51,8 @@ During the cycle:
 - Prefer files over chat memory.
 - Record failed ideas if they prevent future waste.
 
+If you spawn subagents, use them only for independent branches and require each subagent to return an artifact path, one-sentence finding, and verification or blocker. Link those artifact paths from the parent run log, source ledger, or open-loop state.
+
 ## Finish
 
 Before ending:

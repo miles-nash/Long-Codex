@@ -1,6 +1,6 @@
 # Open Loops
 
-Last updated: 2026-05-08
+Last updated: 2026-05-10
 
 ## Purpose
 
@@ -14,8 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Subagent artifact handoff rule | The harvested practice should become a lightweight rule before this repo uses subagents for parallel work. | `docs/research/2026-05-08-agent-artifact-handoffs.md`, `docs/source_ledger.md` | Add a short rule to `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`. |
-| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops. | `docs/cadence_review.md`, `state/useful_hour_scores.md` | Revisit only if a watchpoint triggers or after two more heartbeat runs. |
+| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops. | `docs/cadence_review.md`, `state/useful_hour_scores.md`, `logs/2026-05-08T2248Z-current-practices-harvest.md`, `logs/2026-05-10T0638Z-subagent-handoff-rule.md` | Review now that two post-review heartbeat runs exist. |
 
 ## Parked Ideas
 
@@ -27,6 +26,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Useful-hour score ledger check exceptions: revisit only if a real blocked run scores below 7 and needs explicit syntax.
 - Weekly synthesis automation: wait until logs become repetitive or hard to scan.
 - Parallel subagent cycles: wait until a cycle has genuinely independent branches and can use artifact handoffs.
+- Subagent handoff drift check: add only if the operating loop and repo skill diverge later.
 
 ## Retired Ideas
 
@@ -39,3 +39,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Useful-hour score ledger consistency: resolved in `scripts/check_useful_hour_scores.py`.
 - Faster-cadence review: resolved in `docs/cadence_review.md`; keep 30-minute heartbeat active while watchpoints stay clear.
 - Current-practices harvest: resolved in `docs/research/2026-05-08-agent-artifact-handoffs.md` and `docs/source_ledger.md`.
+- Subagent artifact handoff rule: resolved in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`.
