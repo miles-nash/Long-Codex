@@ -14,7 +14,8 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops. | `docs/cadence_review.md`, `state/useful_hour_scores.md`, `logs/2026-05-10T0740Z-cadence-followup.md` | Revisit only if a watchpoint triggers or after one more heartbeat run. |
+| Next-experiment synthesis | Recent runs closed most active follow-ups; a synthesis pass should decide the next concrete frontier before the faster cadence becomes churn. | `docs/cadence_review.md`, `docs/heartbeat_synthesis.md`, `state/useful_hour_scores.md`, `logs/2026-05-10T0810Z-source-ledger-freshness.md` | Synthesize recent logs and decisions into a next-experiment ladder; if no high-value bounded step emerges, return the heartbeat to hourly. |
+| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops or the queue stays conditional-only. | `docs/cadence_review.md`, `state/useful_hour_scores.md`, `logs/2026-05-10T0810Z-source-ledger-freshness.md` | Revisit immediately after the synthesis run or sooner if a watchpoint triggers. |
 
 ## Parked Ideas
 

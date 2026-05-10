@@ -271,3 +271,20 @@ Score: 12/12
 - Restraint: 2 - did not require every research note to have a ledger row unless future drift proves that stronger rule is needed.
 
 Result: excellent hour. The next best step is cadence watchpoint review after one more heartbeat run, unless a watchpoint triggers first.
+
+## 2026-05-10 02:40 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `automation`
+
+Score: 12/12
+
+- Artifact: 2 - updated `docs/cadence_review.md` with the queue-health cadence decision.
+- Verification: 2 - checked the live automation config and ran `./scripts/check_long_codex_repo.sh`.
+- Learning: 2 - found that faster cadence is still productive, but the next-action queue needs a synthesis target before it becomes conditional-only.
+- Steering: 2 - followed the top next action and avoided changing a working heartbeat schedule without a triggered watchpoint.
+- Handoff: 2 - updated status, next actions, open loops, score ledger, and run log.
+- Restraint: 2 - kept the live automation unchanged and deferred weekly synthesis automation.
+
+Result: excellent hour. The next best step is a bounded synthesis over recent heartbeat logs that produces a next-experiment ladder or recommends returning to hourly.

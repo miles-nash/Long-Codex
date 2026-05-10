@@ -38,6 +38,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - current-practices harvest added in `docs/research/2026-05-08-agent-artifact-handoffs.md` and `docs/source_ledger.md`
 - subagent artifact-handoff rule encoded in `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md`
 - cadence follow-up review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30`
+- cadence watchpoint review added to `docs/cadence_review.md`; active heartbeat kept at `FREQ=MINUTELY;INTERVAL=30` only because the next run has a concrete synthesis target
 
 ## Decisions
 
@@ -63,7 +64,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - Keep the temporary faster heartbeat cadence while runs remain distinct and high-scoring; return to hourly if cadence watchpoints trigger.
 - Subagent work should hand back durable artifact paths plus short findings, not chat-only summaries.
 - Use subagents only for independent branches where artifact-path handoffs reduce context pressure.
-- Keep the 30-minute heartbeat while runs remain distinct and 10+/12; review again after one more heartbeat run or any watchpoint.
+- Keep the 30-minute heartbeat while runs remain distinct and 10+/12; next test is a bounded synthesis pass that either names a concrete next experiment or recommends returning to hourly.
 - Treat source-ledger freshness as a date contract: `docs/source_ledger.md` must be at least as new as the latest dated research note, but not every note needs a ledger row unless it materially changes the system.
 
 ## Known Gaps
@@ -74,6 +75,7 @@ The repo now has an initial long-horizon Codex scaffold:
 - `state/open_loops.md` is now in use, but it still needs routine pruning as follow-ups resolve.
 - The subagent artifact-handoff rule is encoded, but not yet exercised in a real multi-agent cycle.
 - Source-ledger freshness is checked by date, but the repo does not yet check that every material research note appears as a ledger row.
+- The next-action queue is now conditional-heavy; the next synthesis run should create a concrete experiment ladder or trigger a cadence rollback to hourly.
 
 ## Recovery Instructions
 

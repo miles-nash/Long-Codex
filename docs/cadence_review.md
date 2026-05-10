@@ -63,3 +63,24 @@ Use this review when deciding whether to update the automation schedule or add w
 Keep the active heartbeat automation unchanged at `FREQ=MINUTELY;INTERVAL=30`.
 
 Review cadence again if a watchpoint triggers or after two more heartbeat runs. The next non-cadence bottleneck is making sure source-ledger metadata stays fresh as new research notes land.
+
+## Follow-Up Review: 2026-05-10 02:40 America/Denver
+
+### Evidence
+
+- Live automation config still shows `FREQ=MINUTELY;INTERVAL=30`.
+- Post-follow-up run: `logs/2026-05-10T0810Z-source-ledger-freshness.md`, score 12/12.
+- The latest run closed a real eval guardrail and did not create repetitive churn.
+- The active queue is now becoming conditional-heavy; without a concrete next synthesis target, the "no active follow-up" watchpoint could trigger soon.
+
+### Candidate Scores
+
+- Keep the 30-minute heartbeat active and aim the next run at synthesis: score 8. Recent value is still high, but the queue needs a compact next-experiment ladder.
+- Return to hourly now: score 6. Reasonable if the queue stays conditional-only, but premature while one synthesis pass can decide the next useful frontier.
+- Add weekly synthesis automation now: score 3. Still too heavy; one manual synthesis cycle is the cheaper test.
+
+### Decision
+
+Keep the active heartbeat automation unchanged at `FREQ=MINUTELY;INTERVAL=30`.
+
+The next run should perform one bounded synthesis over recent logs and decisions, then either name a concrete next experiment or recommend returning the heartbeat to hourly. If that synthesis cannot identify a high-value bounded step, the "no active follow-up" watchpoint should be treated as triggered.
