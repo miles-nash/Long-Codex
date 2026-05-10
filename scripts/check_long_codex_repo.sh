@@ -14,12 +14,15 @@ required_files=(
   "docs/decision_log.md"
   "docs/heartbeat_synthesis.md"
   "docs/cadence_review.md"
+  "docs/next_experiment_ladder.md"
   "docs/source_ledger.md"
   "docs/eval_summary_policy.md"
   "evals/long_codex_cycle_smoke.md"
   "evals/last_long_codex_cycle_smoke_summary.json"
   "evals/dead_end_avoidance_prompt.md"
   "evals/last_dead_end_avoidance_summary.json"
+  "evals/queue_exhaustion_prompt.md"
+  "evals/last_queue_exhaustion_summary.json"
   "state/status.md"
   "state/next_actions.md"
   "state/open_loops.md"
@@ -28,6 +31,7 @@ required_files=(
   "scripts/check_useful_hour_scores.py"
   "scripts/eval_long_codex_cycle.py"
   "scripts/eval_dead_end_avoidance.py"
+  "scripts/eval_queue_exhaustion.py"
 )
 
 missing=0
@@ -88,6 +92,11 @@ if ! grep -q "DEAD_END_AVOIDED_MARKER" evals/dead_end_avoidance_prompt.md; then
   missing=1
 fi
 
+if ! grep -q "QUEUE_EXHAUSTION_MARKER" evals/queue_exhaustion_prompt.md; then
+  echo "queue-exhaustion eval prompt is missing status marker" >&2
+  missing=1
+fi
+
 if ! python3 - <<'PY'
 import json
 from pathlib import Path
@@ -121,6 +130,26 @@ assert checks.get("forbidden_log_absent") is True
 PY
 then
   echo "dead-end avoidance eval summary is missing required pass data" >&2
+  missing=1
+fi
+
+if ! python3 - <<'PY'
+import json
+from pathlib import Path
+
+summary = json.loads(Path("evals/last_queue_exhaustion_summary.json").read_text())
+assert summary.get("summary_version") == 1
+assert summary.get("passed") is True
+assert isinstance(summary.get("duration_seconds"), (int, float))
+assert summary.get("event_counts", {}).get("thread.started", 0) >= 1
+assert summary.get("event_counts", {}).get("turn.completed", 0) >= 1
+checks = summary.get("checks", {})
+assert all(checks.values())
+assert checks.get("forbidden_log_absent") is True
+assert checks.get("rollback_recommendation") is True
+PY
+then
+  echo "queue-exhaustion eval summary is missing required pass data" >&2
   missing=1
 fi
 
@@ -271,6 +300,8 @@ with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
     py_compile.compile("scripts/eval_long_codex_cycle.py", cfile=compiled.name, doraise=True)
 with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
     py_compile.compile("scripts/eval_dead_end_avoidance.py", cfile=compiled.name, doraise=True)
+with tempfile.NamedTemporaryFile(suffix=".pyc") as compiled:
+    py_compile.compile("scripts/eval_queue_exhaustion.py", cfile=compiled.name, doraise=True)
 PY
 then
   echo "codex exec eval script has a syntax error" >&2

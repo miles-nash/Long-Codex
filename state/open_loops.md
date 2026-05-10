@@ -14,8 +14,7 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 
 | Item | Why It Matters | Evidence | Next Action |
 | --- | --- | --- | --- |
-| Queue-exhaustion behavior eval | The faster cadence needs proof that a heartbeat will slow down or stop instead of inventing busywork when no ready bounded follow-up exists. | `docs/next_experiment_ladder.md`, `docs/cadence_review.md`, `state/useful_hour_scores.md` | Add a nested behavior eval that seeds an empty/conditional queue and checks for a rollback or no-work recommendation. |
-| Cadence watchpoints | The faster cadence is still active and useful, but should slow down if value drops or the queue stays conditional-only after the next eval. | `docs/cadence_review.md`, `docs/next_experiment_ladder.md`, `state/useful_hour_scores.md` | Revisit immediately after the queue-exhaustion eval or sooner if a watchpoint triggers. |
+| Cadence review after queue-exhaustion eval | The queue-exhaustion eval passed, so the schedule decision now has stronger evidence instead of only rubric scores. | `docs/cadence_review.md`, `docs/next_experiment_ladder.md`, `evals/last_queue_exhaustion_summary.json`, `state/useful_hour_scores.md` | Decide whether to keep the 30-minute heartbeat or return to hourly using the passing eval result. |
 
 ## Parked Ideas
 
@@ -46,3 +45,4 @@ Separate active blockers, active follow-ups, parked ideas, and retired ideas so 
 - Post-review cadence check: resolved in `docs/cadence_review.md`; keep 30-minute heartbeat active while watchpoints stay clear.
 - Source-ledger freshness: resolved in `scripts/check_long_codex_repo.sh`; source ledger date must now be at least as new as the latest dated research note.
 - Next-experiment synthesis: resolved in `docs/next_experiment_ladder.md`; a queue-exhaustion behavior eval is the next concrete frontier.
+- Queue-exhaustion behavior eval: resolved in `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`.

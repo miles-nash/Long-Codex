@@ -4,13 +4,12 @@ Last updated: 2026-05-10
 
 ## Priority Queue
 
-1. Add a queue-exhaustion behavior eval that seeds a temporary repo with no ready bounded follow-up and verifies the agent records a cadence rollback or no-work recommendation instead of inventing busywork.
-2. Review `docs/cadence_review.md` after that eval; return the heartbeat to hourly if the eval fails or cannot be completed cleanly in one run.
-3. Refactor shared code between nested eval scripts only if the queue-exhaustion eval creates painful duplication.
-4. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
-5. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
-6. Add a broader useful-hour score behavior eval only if queue-exhaustion coverage is not enough.
-7. If repeated runs score below 7, update the automation before doing more research.
+1. Review `docs/cadence_review.md` using the passing queue-exhaustion eval result; decide whether to keep the 30-minute heartbeat or return to hourly.
+2. Refactor shared code between nested eval scripts only if the queue-exhaustion eval duplication becomes painful in the next maintenance pass.
+3. Add a subagent handoff drift check only if `docs/operating_loop.md` and `.agents/skills/long-codex-cycle/SKILL.md` diverge later.
+4. Add a weekly synthesis automation only if hourly/half-hourly logs begin repeating or growing too long.
+5. Add a broader useful-hour score behavior eval only if queue-exhaustion coverage is not enough.
+6. If repeated runs score below 7, update the automation before doing more research.
 
 ## Parking Lot
 

@@ -34,3 +34,9 @@ That is the right next frontier because it tests the key promise of longer Codex
 A concrete high-value next step exists, so do not return the heartbeat to hourly yet.
 
 Keep the next run bounded to Rung 1: add the queue-exhaustion behavior eval. If that eval cannot be completed cleanly in one run, record the blocker and then review whether the heartbeat should return to hourly.
+
+## Progress
+
+- 2026-05-10: Rung 1 completed in `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`. The eval passed after the nested Codex run was rerun with narrow elevated permission for Codex session-file access.
+
+Next: perform Rung 2 by reviewing `docs/cadence_review.md` with the passing eval result.

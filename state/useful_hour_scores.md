@@ -305,3 +305,20 @@ Score: 12/12
 - Restraint: 2 - did not add weekly synthesis automation or refactor evals before the next eval exists.
 
 Result: excellent hour. The next best step is adding the queue-exhaustion behavior eval.
+
+## 2026-05-10 03:41 America/Denver
+
+Automation: `long-codex-hourly-continuation`
+
+Mode chosen: `eval`
+
+Score: 12/12
+
+- Artifact: 2 - added `scripts/eval_queue_exhaustion.py`, `evals/queue_exhaustion_prompt.md`, and `evals/last_queue_exhaustion_summary.json`.
+- Verification: 2 - ran the queue-exhaustion eval, `./scripts/check_long_codex_repo.sh`, `python3 scripts/check_useful_hour_scores.py`, and `git diff --check`.
+- Learning: 2 - verified the agent can take the no-ready-work branch by recommending rollback/no-work instead of inventing busywork.
+- Steering: 2 - followed the top next action and left cadence review as the next bounded cycle.
+- Handoff: 2 - updated status, next actions, open loops, the experiment ladder, score ledger, and run log.
+- Restraint: 2 - did not refactor the eval harness or change automation cadence in the same eval cycle.
+
+Result: excellent hour. The next best step is reviewing cadence with the passing queue-exhaustion eval result.
